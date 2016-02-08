@@ -1,0 +1,375 @@
+\pagenumbering{arabic}
+\setcounter{secnumdepth}{0}
+\chapter{Svolgimento esercizi assegnati}
+	\section{Esercizio 2.13}
+		\qquad Formalizzare e dimostrare la validit\'a dell'induzione strutturale
+		\emph{mutua} che consente la dimostrazione simultanea di diverse propriet\'a
+		per diverse categorie sintattiche.
+		
+		\sectionline
+		
+		\qquad A volte si ha la necessit\'a di dimostrare congiuntamente un gruppo di
+		enunciati $S1(n),S2(n),\ldots,Sk(n)$ per induzione su n. Un gruppo di
+		enunciati potrebbe essere dimostrato, dimostrando la congiunzione ($AND$
+		logico) di tutti gli enunciati ($S1(n)\land S2(n)\land \ldots \land Sk(n)$).
+		Tuttavia di solito conviene tenere separati gli enunciati e dimostrare per
+		ciascuno la rispettiva base e il passo induttivo. Questo tipo di dimostrazione
+		\'e detto induzione mutua.
+		
+		Consideriamo ad esempio un interruttore on/off, rappresentato con il seguente
+		automa:
+		
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[scale=1]{img/Interruttore}
+		\end{figure*}
+		
+		Ad ogni pressione del pulsante lo stato cambia tra ON e OFF. Proviamo a
+		dimostrare i seguenti due enunciati:
+		
+		$S1(n):$ \emph{l'automa si trova nello stato OFF dopo n pressioni}
+		$\Leftrightarrow$ \emph{n \'e pari.}
+		
+		$S2(n):$ \emph{l'automa si trova nello stato ON dopo n pressioni}
+		$\Leftrightarrow$ \emph{n \'e dispari.}
+		
+		Sapendo che un numero $n$ non pu\'o essere allo stesso tempo pari e dispari, si
+		potrebbe supporre che $S1 \Rightarrow S2$, e viceversa. Questo per\'o non \'e
+		sempre vero in quanto, in generale, un automa potrebbe trovarsi
+		contemporaneamente in pi\'u stati. Non \'e questo il caso dell'automa preso come
+		esempio che si trova sempre esattamente in un solo stato, ma questo deve
+		essere dimostrato come parte dell'induzione mutua.
+		
+		Proviamo a dimostrare le precedenti propriet\'a:
+		
+		\textbf{BASE:} Per il caso base scegliamo $n=0$. Dato che ci sono due
+		enunciati, ognuno dei quali deve essere dimostrato in entrambe le
+		direzioni ($S1$ e $S2$ sono enunciati `se e solo se`), in effetti ci sono
+		quattro casi per la base e altrettanti per l'induzione:
+		\begin{enumerate}
+		  \item $[S1(0), \Rightarrow]$ Dato che $0$ \'e pari, dobbiamo dimostrare che dopo $0$
+		  pressioni l'automa si trova nello stato OFF. Lo stato iniziale dell'automa \'e proprio
+		  OFF e quindi l'automa si trova effettivamente nello stato OFF dopo $0$
+		  pressioni.
+		  \item $[S1(0), \Leftarrow]$ L'automa si trova nello stato OFF dopo $0$
+		  pressioni, quindi dobbiamo dimostrare che $0$ \'e pari. $0$ \'e pari per
+		  definizione quindi non resta altro da dimostrare.
+		  \item $[S2(0), \Rightarrow]$ L'ipotesi afferma che $0$ \'e un numero dispari
+		  $\Rightarrow$ l'implicazione \'e vera.
+		  \item $[S2(0), \Leftarrow]$ L'ipotesi afferma che l'automa si trovi
+		  nello stato ON dopo $0$ pressioni. Questo \'e impossibile in quanto all'automa
+		  serve almeno una pressione del tasto per arrivare nello stato ON
+		  $\Rightarrow$ l'implicazione \'e vera.
+		\end{enumerate}
+		
+		\textbf{PASSO INDUTTIVO:} Supponiamo che $S1(n)$ e $S2(n)$ siano vere, e
+		proviamo a dimostrare $S1(n+1)$ e $S2(n+1)$. Anche questa dimostrazione si divide in 4
+		parti:
+		
+		\begin{enumerate}
+		  \item $[S1(n+1), \Rightarrow]$ Per ipotesi, $n+1$ \'e pari. Di conseguenza $n$ \'e
+		  dispari.
+		  $S2(n)$ dice che dopo $n$ pressioni l'automa si trova nello stato ON. L'arco
+		  da ON a OFF etichettato `Push` dice che la n+1-esima pressione far\'a
+		  passare l'automa nello stato OFF.
+		  \item $[S1(n+1), \Leftarrow]$ L'ipotesi \'e che l'automa si trovi nello
+		  stato OFF dopo $n+1$ pressioni. Esaminando l'automa vediamo che l'unico modo
+		  di pervenire allo stato OFF \'e di trovarsi nello stato ON e di ricevere in
+		  input il comando `Push`. Perci\'o, se l'automa si trova nello stato OFF dopo
+		  $n+1$ pressioni, deve essersi trovato nello stato ON dopo $n$ pressioni.
+		  Quindi da $[S2(n), \Leftarrow]$ concludiamo che $n$ \'e dispari. Dunque
+		  $n+1$ \'e pari.
+		  \item $[S2(n+1), \Rightarrow]$ L'ipotesi afferma che $n+1$ \'e dispari. Di conseguenza
+		  $n$ \'e pari. $[S1(n), \Rightarrow]$ dice che dopo $n$ pressioni l'automa si trova
+		  nello stato OFF. L'arco da OFF a ON con etichetta `Push` dice che la
+		  $n+1$-esima pressione far\'a passare l'automa nello stato ON.
+		  \item $[S2(n+1), \Leftarrow]$ L'ipotesi \'e che l'automa si trovi nello
+		  stato ON dopo $n+1$ pressioni. Esaminando l'automa vediamo che l'unico modo
+		  di pervenire allo stato ON \'e di trovarsi nello stato OFF e di ricevere in
+		  input il comando `Push`. Perci\'o, se l'automa si trova nello stato ON dopo
+		  $n+1$ pressioni, deve essersi trovato nello stato OFF dopo $n$ pressioni.
+		  Quindi da $[S1(n), \Leftarrow]$ concludiamo che $n$ \'e dispari. Dunque
+		  $n+1$ \'e pari.
+		\end{enumerate}
+		
+		Da questo esempio possiamo ricavare il modello di tutte le induzioni mutue:
+		
+		\begin{itemize}
+		  \item Ogni enunciato deve essere dimostrato separatamente nella base e nel
+		  paso induttivo.
+		  \item Se si tratta di enunciati `se e solo se`, allora entrambe le direzioni
+		  di ogni enunciato devono essere dimostrare, sia nella base che nel passo
+		  induttivo.
+		\end{itemize}
+		
+		\newpage
+		
+	\section{Esercizio 3.13}
+		\qquad Fornire l'espressione, derivante dalla sintassi concreta
+		dell'esercizio $11$, che ha il seguente albero di derivazione:
+		
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[scale=0.5]{img/3-13}
+		\end{figure*}
+		
+		\sectionline
+		
+		\qquad L'espressione derivante \'e: $(1*12)*(4+5)$
+		
+		\newpage
+	
+	\newpage \section{Esercizio 4.6}
+		\qquad Dimostrare che la semantica denotazionale delle espressioni regolari
+		soddisfa le seguenti semplici propriet\'a:
+		\subsection{punto (a)}
+			$$E+(F+G) \simeq (E+F)+G$$
+		\subsection{punto (e)}
+			$$E(FG) \simeq (EF)G$$
+		\subsection{punto (f)}
+			$$E(F+G) \simeq EF+EG$$
+		\subsection{punto (j)}
+			$$E^* \simeq 1+E^*E$$
+			
+		\sectionline
+		
+		\qquad La semantica denotazionale delle espressioni regolari \'e cos\'i definita:
+		\begin{itemize}
+		  \item $\mathcal{L} \llbracket 0 \rrbracket = \emptyset$
+		  \item $\mathcal{L} \llbracket 1 \rrbracket = \{\epsilon\}$
+		  \item $\mathcal{L} \llbracket a \rrbracket = \{a\}$ (per $a \in A$)
+		  \item $\mathcal{L} \llbracket E + F \rrbracket = \mathcal{L} \llbracket E
+		  	\rrbracket \cup \mathcal{L} \llbracket F
+		  	\rrbracket$
+		  \item $\mathcal{L} \llbracket E ; F \rrbracket = \mathcal{L} \llbracket E
+		  	\rrbracket \cdot \mathcal{L} \llbracket F
+		  	\rrbracket$ 
+		  \item $\mathcal{L} \llbracket E^* \rrbracket = (\mathcal{L} \llbracket E
+		  	\rrbracket)^*$ 
+		\end{itemize}
+		
+		Da queste equivalenze possiamo ricavare:
+		\begin{itemize}
+		  \item punto (a):$$ E+(F+G) \simeq (E+F)+G $$  		  
+		  	\begin{align*}
+		  		\mathcal{L} \llbracket E+(F+G) \rrbracket &= \mathcal{L}
+		  		\llbracket E \rrbracket \cup \mathcal{L}
+		  		\llbracket F + G \rrbracket \\ &= \mathcal{L}
+		  		\llbracket E \rrbracket \cup \mathcal{L}
+		  		\llbracket F \rrbracket \cup \mathcal{L}
+		  		\llbracket G \rrbracket \\ &= \mathcal{L}
+		  		\llbracket E + F \rrbracket \cup \mathcal{L}
+		  		\llbracket G \rrbracket \\ &= \mathcal{L} \llbracket (E + F) + G
+		  		\rrbracket
+		  	\end{align*}
+		  \item punto (e): $$E(FG) \simeq (EF)G$$
+		  	\begin{align*}
+		  		\mathcal{L} \llbracket E(FG) \rrbracket &= \mathcal{L} \llbracket E
+		  		\rrbracket \cdot \mathcal{L} \llbracket FG \rrbracket \\ &= \mathcal{L} \llbracket E \rrbracket \cdot
+		  		\mathcal{L} \llbracket F \rrbracket \cdot \mathcal{L} \llbracket G
+		  		\rrbracket \\ &= \mathcal{L} \llbracket EF \rrbracket \cdot \mathcal{L}
+		  		\llbracket G \rrbracket \\ &= \mathcal{L} \llbracket (EF)G \rrbracket
+		  	\end{align*}
+		  \item punto (f): $$E(F+G) \simeq EF + EG$$
+		  	\begin{align*}
+		  		\mathcal{L} \llbracket E(F+G) \rrbracket &= \mathcal{L} \llbracket E
+		  		\rrbracket \cdot \mathcal{L} \llbracket F+G \rrbracket \\ &= \mathcal{L} \llbracket E
+		  		\rrbracket \cdot (\mathcal{L} \llbracket F \rrbracket \cup \mathcal{L}
+		  		\llbracket G \rrbracket) \\ &= (\mathcal{L} \llbracket E \rrbracket \cdot
+		  		\mathcal{L} \llbracket F \rrbracket) \cup (\mathcal{L} \llbracket E
+		  		\rrbracket \cdot \mathcal{L} \llbracket G \rrbracket) \\ &= \mathcal{L}
+		  		\llbracket EF + EG
+		  		\rrbracket
+		  	\end{align*}
+		\end{itemize}
+		
+		\newpage
+			
+	\section{Esercizio 5.7}
+	
+		\qquad Siano:
+		\begin{equation*}
+			\svar = \lambda xyz.xz(yz)
+		\end{equation*}
+		\begin{equation*}
+			\kvar = \lambda xy.x
+		\end{equation*}
+		\begin{equation*}
+			\ivar = \lambda x.x
+		\end{equation*}
+		Trovare la forma normale dei due termini:
+		\begin{equation*}
+			(\lambda y.yyy)(\kvar\ivar)(\ssvar))\text{ e }\sssssssvar
+		\end{equation*}
+		
+		\sectionline
+		
+		\begin{align*}
+			(\lambda y.yyy)(\kvar\ivar(\ssvar)) & =
+			\kvar\ivar(\ssvar)(\kvar\ivar(\ssvar))(\kvar\ivar(\ssvar))\\
+			& = (\lambda y.\ivar)(\ssvar)((\lambda y.\ivar)(\ssvar))((\lambda
+			y.\ivar)(\ssvar))\\
+			& = \ivar\ivar\ivar\\
+			& = \ivar\ivar\\
+			& = \ivar\\
+		\end{align*}
+		
+		\begin{align*}
+			\sssssssvar & = (\lambda xyz.xz(yz))\ssssssvar\\
+			& = (\lambda yz.\svar z(yz))\sssssvar\\
+			& = (\lambda z.\svar z(\svar z))\ssssvar\\
+			& = \ssvar(\ssvar)\sssvar\\
+			& = (\lambda yz.\svar z(yz))(\ssvar)\sssvar\\
+			& = (\lambda z.\svar z(\ssvar)z)\sssvar\\
+			& = \ssvar(\sssvar)\ssvar\\
+			& = (\lambda yz.\svar z(yz))(\sssvar)\ssvar\\
+			& = (\lambda z.\svar z(\sssvar z))\ssvar\\
+			& = \ssvar(\ssssvar)\svar\\
+			& = (\lambda yz.\svar z(yz))(\ssssvar)\svar\\
+			& \quad \vdots\\
+			& = \lambda za.a a(a a(a a(\lambda b.b b(b b))))\\
+		\end{align*}
+		
+		Lo svolgimento completo si trova in appendice A.
+		
+		\newpage
+	
+	\section{Esercizio 6.7}
+		\qquad Risolvere le equazioni fra linguaggi:
+		\begin{enumerate}
+		  \item $X = \{a\} \cdot X$
+		  \item $X = {a} \cup (\{b\} \cdot X)$
+		\end{enumerate}
+		dopo aver scelto gli opportuni domini e verificato che $\cdot$ e $\cup$ sono
+		operazioni continue.
+		
+		\sectionline
+		
+		\begin{minipage}{0.2\linewidth}
+			\begin{flushleft}
+				$D:\{a,b\}$\\
+				$\mathbb{D} = up(D)$\\
+				$\mathbb{D}^*$
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.7\linewidth}
+			\begin{flushright}
+				l'insieme composto dai caratteri 'a' e 'b'\\
+				il dominio ottenuto tramite lifting da D\\
+				il dominio sequenza di $\mathbb{D}$
+			\end{flushright}
+		\end{minipage}\\
+		
+		Dato che il membro sinistro \'e sempre composto da un solo carattere,
+		possiamo definire la concatenazione $\cdot$ come il costruttore $\cdot ::
+		\cdot$ e quindi affermarne la continuit\'a grazie al lemma $6.39$. L'unione
+		$\cdot\cup\cdot$ pu\'o essere assimilata ad una somma disgiunta di domini
+		considerando la somma disgiunta dei linguaggi.
+		
+		Le due equazioni generano i linguaggi $a^+$ e $b^*a$; sostituendo queste due
+		espressioni nelle relative equazioni otteniamo infatti un'equivalenza. Le
+		soluzioni delle equazioni sono dunque:
+		
+		\begin{enumerate}
+		  \item $X = a^+$
+		  \item $X = b^*a$
+		\end{enumerate}
+		
+		\newpage
+		
+	\section{Esercizio 7.3}
+		\qquad Introdurre in SLF un tipo di dato \emph{lista di naturali} e scrivere
+		una funzione che, data una lista, ne calcola la lunghezza.
+		
+		\sectionline
+		
+		\subsection{Sintassi}
+		
+		\qquad Per introdurre il tipo di dati \emph{lista di naturali} abbiamo
+		sicuramente bisogno di aggiungere i nuovi simboli $\{[,]\}$ e le nuove
+		funzioni di base \textbf{hd}$(l)$, \textbf{tl}$(l)$, \textbf{null}$(l)$ e
+		\textbf{remove}$(n)$ alla sintassi di SLF. Aggiungiamo ai valori di base il tipo di dato
+		\emph{lista di naturali} $l := \{[n,l]\text{ }|\text{ }n \in
+		\mathbb{N},l\text{ \'e una lista di naturali.}\}$
+		
+		Definiamo le funzioni di base che in generale si trovano associate alle
+		liste:
+		\begin{itemize}
+		  \item $n\text{ }\textbf{::}\text{ }l$: questo \'e il costruttore che aggiunge
+		  $n$ in testa alla lista $l$.
+		  \item \textbf{hd}$(l)$: questa funzione restituisce il primo elemento della
+		  lista (senza rimuoverlo).
+		  \item \textbf{tl}$(l)$: questa funzione restituisce l'ultimo elemento della
+		  lista (senza rimuoverlo).
+		  \item \textbf{null}$(l)$: questa funzione restituisce $0$ (\emph{true})
+		  se la lista \'e vuota o un numero $n+1$ (\emph{false}) altrimenti.
+		  \item \textbf{remove}$(n,l)$: questa funzione rimuove l'elemento $n$ dalla
+		  lista e restituisce la lista risultante
+		\end{itemize}
+				
+		\subsection{Semantica}
+		\qquad Semantica
+		
+		
+		
+		\subsection{Funzione}
+		\qquad La funzione richiesta pu\'o essere implementata come segue:
+		
+		$$\textbf{f}(l) \Leftarrow \textbf{if}\text{ }\textbf{null}(l)\text{
+		}\textbf{then}\text{ }0\text{ }\textbf{else}\text{ }1 +
+		f(\textbf{remove}(\textbf{hd}(l),l))$$
+		
+		\newpage
+		
+	\section{Esercizio 10.2}
+		\qquad Si scriva un termine che descriva un distributore automatico in grado
+		di offrire acqua o cioccolato un numero illimitato di volte, senza accettare
+		monete fino a che non \'e stato servito l'utente precedente. Si risolva
+		l'esercizio in tre modi: con l'operatore di ricorsione, con la definizione di
+		costanti di processo e con l'operatore di replicazione.
+		
+		\sectionline
+		
+		\qquad Svolgimento\ldots\ldots\ldots
+		
+		\newpage
+		
+	\section{Esercizio 11.3}
+		\qquad Utilizzando la caratterizzazione delle simulazioni forti vista
+		nell'Esercizio $11.1$, si provi che \emph{Id} \'e una simulazione e che se
+		\emph{R} ed \emph{S} sono simulazioni allora $\emph{R} \cup \emph{S}$ ed
+		\emph{RS} sono simulazioni.
+		
+		\sectionline
+		
+		\qquad Svolgimento\ldots\ldots\ldots
+		
+		\newpage
+		
+	\section{Esercizio 11.8}
+		\qquad Dimostrare che l'unione di tutte le bisimulazioni di branching \'e una
+		bisimulazione di branching e che essa \'e un'equivalenza.
+		
+		\sectionline
+		
+		\qquad Svolgimento\ldots\ldots\ldots
+		
+		\newpage
+		
+	\section{Esercizio 12.3}
+		\qquad Relativamente alla definizione di insieme saturato (Definizione
+		$12.57$), si dimostri che se $\mathcal{L}$ \'e saturato,allora valgono le
+		seguenti propriet\'a:
+		\begin{enumerate}
+		  \item se $L_1,L_2 \in \mathcal{L}$ allora:
+		  \begin{itemize}
+		    \item $L_1 \cup L_2 \in \mathcal{L}$
+		    \item se $L_1 \subseteq K \subseteq L_2$ allora $K \in \mathcal{L}$
+		  \end{itemize}
+		  \item \emph{Act}($\mathcal{L}$) $\in \mathcal{L}$
+		\end{enumerate}
+		
+		\sectionline
+		
+		\qquad Svolgimento\ldots\ldots\ldots
