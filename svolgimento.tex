@@ -307,11 +307,47 @@
 		  \item \textbf{remove}$(n,l)$: questa funzione rimuove l'elemento $n$ dalla
 		  lista e restituisce la lista risultante
 		\end{itemize}
-				
-		\subsection{Semantica}
-		\qquad Semantica
+
+		Con queste aggiunte, la nuova sintassi di SLF diventa la seguente:
 		
+		\begin{align*}
+			P & ::= \textbf{letrec} \, D \, \textbf{in} \, T\\
+			B & ::= n \, | \, l\\
+			T & ::= x_i \, | \, B \, | \, \text{b}_j(T_1,\dots,T_m) \, | \, \text{f}_r(T_1,\dots,T_{\rho(r)}) \, | \, \textbf{if} \, T \, \textbf{then} \, T1 \, \textbf{else} \, T_2\\
+			D & ::= \text{f}_1(x_1,\dots,x_{\rho(1)})\Leftarrow T_1,\dots,\text{f}_n(x_1,\dots,x_{\rho(n)}) \Leftarrow T_n\\ 
+		\end{align*}
+		\vspace{-16 mm}
+		\begin{flushright}
+			$\rho(j)$ \'e l'ariet\'a di $f_j$, $1\leq j\leq n$
+		\end{flushright}
 		
+		\subsection{Semantica operazionale}
+		
+		\qquad Avendo aggiunto un tipo di dato di base, la semantica operazionale deve prevedere che si possano valutare funzioni che abbiano, come argomenti, anche le liste oltre ai naturali. Per questo motivo le due regole di inferenza $(Bas_1)$ e $(Bas_2)$ diventano:\\
+		\begin{minipage}{0.7\linewidth}
+			\vspace{5 mm}
+			\begin{flushleft}
+				$\frac{}{\text{b}_j(B_1,\dots,B_m)\rightarrow_D \, B} \, b_j(B_1,\dots,B_m) = B$\\
+				$\frac{T_i \rightarrow_D T^{'}_i}{\text{b}_j(\dots,T_i,\dots)\rightarrow_D\text{b}_j(\dots,T^{'}_i,\dots)}$\\
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.2\linewidth}
+			\vspace{5 mm}
+			\begin{flushright}
+				$(Bas_1)$\\
+				$(Bas_2)$\\
+			\end{flushright}
+		\end{minipage}
+		
+		\subsection{Semantica denotazionale}
+		
+		\qquad Sicuramente la semantica denotazionale ha bisogno di qualche modifica in pi\'u, a partire dai tipi delle funzioni semantiche. Dobbiamo considerare che adesso i programmi (risp. i termini) possono restituire liste (possono essere composti da liste) e il dominio $(\mathbb{FUN}_m)^n$ rappresenter\'a il dominio delle funzioni continue con $m$ argomenti che potranno essere naturali o liste. Per questi motivi i nuovi tipi saranno i seguenti:
+		\begin{align*}
+		\mathcal{P} & : \, \emph{Prog}\rightarrow (\mathbb{NAT}+\mathbb{LIST}+\{error\})\\
+		\mathcal{D} & : \, \emph{Decl}\rightarrow (\mathbb{FUN}_m)^n\\
+		\mathcal{T} & : \, \emph{Term}\rightarrow (\mathbb{FUN}_m)^n \rightarrow (\mathbb{NAT}+\mathbb{LIST})^n \rightarrow (\mathbb{NAT}+\mathbb{LIST}+\{error\})\\
+		\end{align*}
 		
 		\subsection{Funzione}
 		\qquad La funzione richiesta pu\'o essere implementata come segue:
