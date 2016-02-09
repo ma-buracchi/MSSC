@@ -2,19 +2,19 @@
 \setcounter{secnumdepth}{0}
 \chapter{Svolgimento esercizi assegnati}
 	\section{Esercizio 2.13}
-		\qquad Formalizzare e dimostrare la validit\'a dell'induzione strutturale
-		\emph{mutua} che consente la dimostrazione simultanea di diverse propriet\'a
+		\qquad Formalizzare e dimostrare la validità dell'induzione strutturale
+		\emph{mutua} che consente la dimostrazione simultanea di diverse proprietà
 		per diverse categorie sintattiche.
 		
 		\sectionline
 		
-		\qquad A volte si ha la necessit\'a di dimostrare congiuntamente un gruppo di
+		\qquad A volte si ha la necessità di dimostrare congiuntamente un gruppo di
 		enunciati $S1(n),S2(n),\ldots,Sk(n)$ per induzione su n. Un gruppo di
 		enunciati potrebbe essere dimostrato, dimostrando la congiunzione ($AND$
 		logico) di tutti gli enunciati ($S1(n)\land S2(n)\land \ldots \land Sk(n)$).
 		Tuttavia di solito conviene tenere separati gli enunciati e dimostrare per
 		ciascuno la rispettiva base e il passo induttivo. Questo tipo di dimostrazione
-		\'e detto \emph{induzione mutua}.
+		\`e detto \emph{induzione mutua}.
 		
 		Consideriamo ad esempio un interruttore on/off, rappresentato con il seguente
 		automa:
@@ -28,38 +28,38 @@
 		dimostrare i seguenti due enunciati:
 		
 		$S1(n):$ \emph{l'automa si trova nello stato OFF dopo n pressioni}
-		$\Leftrightarrow$ \emph{n \'e pari.}
+		$\Leftrightarrow$ \emph{n \`e pari.}
 		
 		$S2(n):$ \emph{l'automa si trova nello stato ON dopo n pressioni}
-		$\Leftrightarrow$ \emph{n \'e dispari.}
+		$\Leftrightarrow$ \emph{n \`e dispari.}
 		
-		Sapendo che un numero $n$ non pu\'o essere allo stesso tempo pari e dispari, si
-		potrebbe supporre che $S1 \Rightarrow S2$, e viceversa. Questo per\'o non \'e
+		Sapendo che un numero $n$ non pu\`{o} essere allo stesso tempo pari e dispari, si
+		potrebbe supporre che $S1 \Rightarrow S2$, e viceversa. Questo per\`{o} non \`{e}
 		sempre vero in quanto, in generale, un automa potrebbe trovarsi
-		contemporaneamente in pi\'u stati. Non \'e questo il caso dell'automa preso come
+		contemporaneamente in pi\`{u} stati. Non \`{e} questo il caso dell'automa preso come
 		esempio che si trova sempre esattamente in un solo stato, ma questo deve
 		essere dimostrato come parte dell'induzione mutua.
 		
-		Proviamo a dimostrare le precedenti propriet\'a:
+		Proviamo a dimostrare le precedenti proprietà:
 		
 		\textbf{BASE:} Per il caso base scegliamo $n=0$. Dato che ci sono due
 		enunciati, ognuno dei quali deve essere dimostrato in entrambe le
 		direzioni ($S1$ e $S2$ sono enunciati `se e solo se`), in effetti ci sono
 		quattro casi per la base e altrettanti per l'induzione:
 		\begin{enumerate}
-		  \item $[S1(0), \Rightarrow]$ Dato che $0$ \'e pari, dobbiamo dimostrare che dopo $0$
-		  pressioni l'automa si trova nello stato OFF. Lo stato iniziale dell'automa \'e proprio
+		  \item $[S1(0), \Rightarrow]$ Dato che $0$ \`e pari, dobbiamo dimostrare che dopo $0$
+		  pressioni l'automa si trova nello stato OFF. Lo stato iniziale dell'automa \`e proprio
 		  OFF e quindi l'automa si trova effettivamente nello stato OFF dopo $0$
 		  pressioni.
 		  \item $[S1(0), \Leftarrow]$ L'automa si trova nello stato OFF dopo $0$
-		  pressioni, quindi dobbiamo dimostrare che $0$ \'e pari. $0$ \'e pari per
+		  pressioni, quindi dobbiamo dimostrare che $0$ \`e pari. $0$ \`e pari per
 		  definizione quindi non resta altro da dimostrare.
-		  \item $[S2(0), \Rightarrow]$ L'ipotesi afferma che $0$ \'e un numero dispari
-		  $\Rightarrow$ l'implicazione \'e vera.
+		  \item $[S2(0), \Rightarrow]$ L'ipotesi afferma che $0$ \`e un numero dispari
+		  $\Rightarrow$ l'implicazione \`e vera.
 		  \item $[S2(0), \Leftarrow]$ L'ipotesi afferma che l'automa si trovi
-		  nello stato ON dopo $0$ pressioni. Questo \'e impossibile in quanto all'automa
+		  nello stato ON dopo $0$ pressioni. Questo \`e impossibile in quanto all'automa
 		  serve almeno una pressione del tasto per arrivare nello stato ON
-		  $\Rightarrow$ l'implicazione \'e vera.
+		  $\Rightarrow$ l'implicazione \`e vera.
 		\end{enumerate}
 		
 		\textbf{PASSO INDUTTIVO:} Supponiamo che $S1(n)$ e $S2(n)$ siano vere, e
@@ -67,29 +67,29 @@
 		parti:
 		
 		\begin{enumerate}
-		  \item $[S1(n+1), \Rightarrow]$ Per ipotesi, $n+1$ \'e pari. Di conseguenza $n$ \'e
+		  \item $[S1(n+1), \Rightarrow]$ Per ipotesi, $n+1$ \`e pari. Di conseguenza $n$ \`e
 		  dispari.
 		  $S2(n)$ dice che dopo $n$ pressioni l'automa si trova nello stato ON. L'arco
-		  da ON a OFF etichettato `Push` dice che la n+1-esima pressione far\'a
+		  da ON a OFF etichettato `Push` dice che la n+1-esima pressione farà
 		  passare l'automa nello stato OFF.
-		  \item $[S1(n+1), \Leftarrow]$ L'ipotesi \'e che l'automa si trovi nello
+		  \item $[S1(n+1), \Leftarrow]$ L'ipotesi \`e che l'automa si trovi nello
 		  stato OFF dopo $n+1$ pressioni. Esaminando l'automa vediamo che l'unico modo
-		  di pervenire allo stato OFF \'e di trovarsi nello stato ON e di ricevere in
-		  input il comando `Push`. Perci\'o, se l'automa si trova nello stato OFF dopo
+		  di pervenire allo stato OFF \`e di trovarsi nello stato ON e di ricevere in
+		  input il comando `Push`. Perci\`{o}, se l'automa si trova nello stato OFF dopo
 		  $n+1$ pressioni, deve essersi trovato nello stato ON dopo $n$ pressioni.
-		  Quindi da $[S2(n), \Leftarrow]$ concludiamo che $n$ \'e dispari. Dunque
-		  $n+1$ \'e pari.
-		  \item $[S2(n+1), \Rightarrow]$ L'ipotesi afferma che $n+1$ \'e dispari. Di conseguenza
-		  $n$ \'e pari. $[S1(n), \Rightarrow]$ dice che dopo $n$ pressioni l'automa si trova
+		  Quindi da $[S2(n), \Leftarrow]$ concludiamo che $n$ \`{e} dispari. Dunque
+		  $n+1$ \`e pari.
+		  \item $[S2(n+1), \Rightarrow]$ L'ipotesi afferma che $n+1$ \`e dispari. Di conseguenza
+		  $n$ \`e pari. $[S1(n), \Rightarrow]$ dice che dopo $n$ pressioni l'automa si trova
 		  nello stato OFF. L'arco da OFF a ON con etichetta `Push` dice che la
-		  $n+1$-esima pressione far\'a passare l'automa nello stato ON.
-		  \item $[S2(n+1), \Leftarrow]$ L'ipotesi \'e che l'automa si trovi nello
+		  $n+1$-esima pressione farà passare l'automa nello stato ON.
+		  \item $[S2(n+1), \Leftarrow]$ L'ipotesi \`e che l'automa si trovi nello
 		  stato ON dopo $n+1$ pressioni. Esaminando l'automa vediamo che l'unico modo
-		  di pervenire allo stato ON \'e di trovarsi nello stato OFF e di ricevere in
-		  input il comando `Push`. Perci\'o, se l'automa si trova nello stato ON dopo
+		  di pervenire allo stato ON \`e di trovarsi nello stato OFF e di ricevere in
+		  input il comando `Push`. Perci\`{o}, se l'automa si trova nello stato ON dopo
 		  $n+1$ pressioni, deve essersi trovato nello stato OFF dopo $n$ pressioni.
-		  Quindi da $[S1(n), \Leftarrow]$ concludiamo che $n$ \'e dispari. Dunque
-		  $n+1$ \'e pari.
+		  Quindi da $[S1(n), \Leftarrow]$ concludiamo che $n$ \`{e} dispari. Dunque
+		  $n+1$ \`{e} pari.
 		\end{enumerate}
 		
 		Da questo esempio possiamo ricavare il modello di tutte le induzioni mutue:
@@ -115,13 +115,13 @@
 		
 		\sectionline
 		
-		\qquad L'espressione derivante \'e: $(1*12)*(4+5)$
+		\qquad L'espressione derivante \`e: $(1*12)*(4+5)$
 		
 		\newpage
 	
 	\newpage \section{Esercizio 4.6}
 		\qquad Dimostrare che la semantica denotazionale delle espressioni regolari
-		soddisfa le seguenti semplici propriet\'a:
+		soddisfa le seguenti semplici proprietà:
 		\subsection{punto (a)}
 			$$E+(F+G) \simeq (E+F)+G$$
 		\subsection{punto (e)}
@@ -133,7 +133,7 @@
 			
 		\sectionline
 		
-		\qquad La semantica denotazionale delle espressioni regolari \'e cos\'i definita:
+		\qquad La semantica denotazionale delle espressioni regolari \`{e} cos\`{\i} definita:
 		\begin{itemize}
 		  \item $\mathcal{L} \llbracket 0 \rrbracket = \emptyset$
 		  \item $\mathcal{L} \llbracket 1 \rrbracket = \{\epsilon\}$
@@ -261,10 +261,10 @@
 			\end{flushright}
 		\end{minipage}\\
 		
-		Dato che il membro sinistro \'e sempre composto da un solo carattere,
+		Dato che il membro sinistro \`e sempre composto da un solo carattere,
 		possiamo definire la concatenazione $\cdot$ come il costruttore $\cdot ::
-		\cdot$ e quindi affermarne la continuit\'a grazie al lemma $6.39$. L'unione
-		$\cdot\cup\cdot$ pu\'o essere assimilata ad una somma disgiunta di domini
+		\cdot$ e quindi affermarne la continuità grazie al lemma $6.39$. L'unione
+		$\cdot\cup\cdot$ pu\`{o} essere assimilata ad una somma disgiunta di domini
 		considerando la somma disgiunta dei linguaggi.
 		
 		Le due equazioni generano i linguaggi $a^+$ e $b^*a$; sostituendo queste due
@@ -289,23 +289,22 @@
 		\qquad Per introdurre il tipo di dati \emph{lista di naturali} abbiamo
 		sicuramente bisogno di aggiungere i nuovi simboli $\{[,]\}$ e le nuove
 		funzioni di base \textbf{hd}$(l)$, \textbf{tl}$(l)$, \textbf{null}$(l)$ e
-		\textbf{remove}$(n)$ alla sintassi di SLF. Aggiungiamo ai valori di base il tipo di dato
+		\textbf{remove}$(n,l)$ alla sintassi di SLF. Aggiungiamo ai valori di base il tipo di dato
 		\emph{lista di naturali} $l := \{[n,l]\text{ }|\text{ }n \in
-		\mathbb{N},l\text{ \'e una lista di naturali.}\}$
+		\mathbb{NAT},l\text{ \`e una lista di naturali.}\}$
 		
 		Definiamo le funzioni di base che in generale si trovano associate alle
 		liste:
 		\begin{itemize}
-		  \item $n\text{ }\textbf{::}\text{ }l$: questo \'e il costruttore che aggiunge
+		  \item $n\text{ }\textbf{::}\text{ }l$: questo \`e il costruttore che aggiunge
 		  $n$ in testa alla lista $l$.
 		  \item \textbf{hd}$(l)$: questa funzione restituisce il primo elemento della
 		  lista (senza rimuoverlo).
 		  \item \textbf{tl}$(l)$: questa funzione restituisce l'ultimo elemento della
 		  lista (senza rimuoverlo).
 		  \item \textbf{null}$(l)$: questa funzione restituisce $0$ (\emph{true})
-		  se la lista \'e vuota o un numero $n+1$ (\emph{false}) altrimenti.
-		  \item \textbf{remove}$(n,l)$: questa funzione rimuove l'elemento $n$ dalla
-		  lista e restituisce la lista risultante
+		  se la lista \`e vuota o un numero $n+1$ (\emph{false}) altrimenti.
+		  \item \textbf{remove}$(n,l)$: questa funzione rimuove la prima occorrenza dell'elemento $n$ dalla lista $l$ e restituisce la lista risultante
 		\end{itemize}
 
 		Con queste aggiunte, la nuova sintassi di SLF diventa la seguente:
@@ -318,17 +317,16 @@
 		\end{align*}
 		\vspace{-16 mm}
 		\begin{flushright}
-			$\rho(j)$ \'e l'ariet\'a di $f_j$, $1\leq j\leq n$
+			$\rho(j)$ \`{e} l'ariet\`{a} di $f_j$, $1\leq j\leq n$
 		\end{flushright}
 		
 		\subsection{Semantica operazionale}
 		
-		\qquad Avendo aggiunto un tipo di dato di base, la semantica operazionale deve prevedere che si possano valutare funzioni che abbiano, come argomenti, anche le liste oltre ai naturali. Per questo motivo le due regole di inferenza $(Bas_1)$ e $(Bas_2)$ diventano:\\
+		\qquad Avendo aggiunto un tipo di dato di base, la semantica operazionale deve prevedere che si possano valutare funzioni che abbiano, come argomenti, anche le liste oltre ai naturali. Per questo motivo la regola di inferenza $(Bas_1)$ diventa:\\
 		\begin{minipage}{0.7\linewidth}
 			\vspace{5 mm}
 			\begin{flushleft}
 				$\frac{}{\text{b}_j(B_1,\dots,B_m)\rightarrow_D \, B} \, b_j(B_1,\dots,B_m) = B$\\
-				$\frac{T_i \rightarrow_D T^{'}_i}{\text{b}_j(\dots,T_i,\dots)\rightarrow_D\text{b}_j(\dots,T^{'}_i,\dots)}$\\
 			\end{flushleft}
 		\end{minipage}
 		\hfill
@@ -336,32 +334,41 @@
 			\vspace{5 mm}
 			\begin{flushright}
 				$(Bas_1)$\\
-				$(Bas_2)$\\
 			\end{flushright}
 		\end{minipage}
 		
 		\subsection{Semantica denotazionale}
 		
-		\qquad Sicuramente la semantica denotazionale ha bisogno di qualche modifica in pi\'u, a partire dai tipi delle funzioni semantiche. Dobbiamo considerare che adesso i programmi (risp. i termini) possono restituire liste (possono essere composti da liste) e il dominio $(\mathbb{FUN}_m)^n$ rappresenter\'a il dominio delle funzioni continue con $m$ argomenti che potranno essere naturali o liste. Per questi motivi i nuovi tipi saranno i seguenti:
+		\qquad Sicuramente la semantica denotazionale ha bisogno di qualche modifica in pi\`{u}, a partire dai tipi delle funzioni semantiche. Dobbiamo considerare che adesso i programmi (risp. i termini) possono restituire liste (possono essere composti da liste) e il dominio $(\mathbb{FUN}_m)^n$ rappresenter\`{a} il dominio delle funzioni continue con $m$ argomenti che potranno essere naturali o liste. Per questi motivi i nuovi tipi saranno i seguenti:
+		
 		\begin{align*}
-		\mathcal{P} & : \, \emph{Prog}\rightarrow (\mathbb{NAT}+\mathbb{LIST}+\{error\})\\
+		\mathcal{P} & : \, \emph{Prog}\rightarrow (\mathbb{NAT}+\mathbb{LIST})\\
 		\mathcal{D} & : \, \emph{Decl}\rightarrow (\mathbb{FUN}_m)^n\\
-		\mathcal{T} & : \, \emph{Term}\rightarrow (\mathbb{FUN}_m)^n \rightarrow (\mathbb{NAT}+\mathbb{LIST})^n \rightarrow (\mathbb{NAT}+\mathbb{LIST}+\{error\})\\
+		\mathcal{T} & : \, \emph{Term}\rightarrow (\mathbb{FUN}_m)^n \rightarrow (\mathbb{NAT} + \mathbb{LIST})^m\rightarrow (\mathbb{NAT}+\mathbb{LIST})\\
+		\mathcal{B} & : \, \emph{Base} \rightarrow (\mathbb{NAT}+\mathbb{LIST})\\
+		\end{align*}
+		
+		La semantica denotazionale, a questo punto, ha bisogno dell'aggiunta delle funzioni di interpretazione per la nuova classe sintattica $B$:
+		
+		\begin{align*}
+		\mathcal{B} \llbracket n \rrbracket & = n\\
+		\mathcal{B} \llbracket l \rrbracket & = l\\
+		\mathcal{T} \llbracket B \rrbracket & = \lambda \overrightarrow{F}.\lambda \overrightarrow{X}.\mathcal{B} \llbracket B \rrbracket\\		
 		\end{align*}
 		
 		\subsection{Funzione}
-		\qquad La funzione richiesta pu\'o essere implementata come segue:
+		\qquad La funzione richiesta pu\`o essere implementata come segue:
 		
 		$$\textbf{f}(l) \Leftarrow \textbf{if}\text{ }\textbf{null}(l)\text{
 		}\textbf{then}\text{ }0\text{ }\textbf{else}\text{ }1 +
-		f(\textbf{remove}(\textbf{hd}(l),l))$$
+		\textbf{f}(\textbf{remove}(\textbf{hd}(l),l))$$
 		
 		\newpage
 		
 	\section{Esercizio 10.2}
 		\qquad Si scriva un termine che descriva un distributore automatico in grado
 		di offrire acqua o cioccolato un numero illimitato di volte, senza accettare
-		monete fino a che non \'e stato servito l'utente precedente. Si risolva
+		monete fino a che non \`e stato servito l'utente precedente. Si risolva
 		l'esercizio in tre modi: con l'operatore di ricorsione, con la definizione di
 		costanti di processo e con l'operatore di replicazione.
 		
@@ -373,7 +380,7 @@
 		
 	\section{Esercizio 11.3}
 		\qquad Utilizzando la caratterizzazione delle simulazioni forti vista
-		nell'Esercizio $11.1$, si provi che \emph{Id} \'e una simulazione e che se
+		nell'Esercizio $11.1$, si provi che \emph{Id} \`e una simulazione e che se
 		\emph{R} ed \emph{S} sono simulazioni allora $\emph{R} \cup \emph{S}$ ed
 		\emph{RS} sono simulazioni.
 		
@@ -384,8 +391,8 @@
 		\newpage
 		
 	\section{Esercizio 11.8}
-		\qquad Dimostrare che l'unione di tutte le bisimulazioni di branching \'e una
-		bisimulazione di branching e che essa \'e un'equivalenza.
+		\qquad Dimostrare che l'unione di tutte le bisimulazioni di branching \`e una
+		bisimulazione di branching e che essa \`e un'equivalenza.
 		
 		\sectionline
 		
@@ -395,8 +402,8 @@
 		
 	\section{Esercizio 12.3}
 		\qquad Relativamente alla definizione di insieme saturato (Definizione
-		$12.57$), si dimostri che se $\mathcal{L}$ \'e saturato,allora valgono le
-		seguenti propriet\'a:
+		$12.57$), si dimostri che se $\mathcal{L}$ \`e saturato,allora valgono le
+		seguenti proprietà:
 		\begin{enumerate}
 		  \item se $L_1,L_2 \in \mathcal{L}$ allora:
 		  \begin{itemize}
