@@ -2,13 +2,13 @@
 \setcounter{secnumdepth}{0}
 \chapter{Svolgimento esercizi assegnati}
 	\section{Esercizio 2.13}
-		\qquad Formalizzare e dimostrare la validità dell'induzione strutturale
-		\emph{mutua} che consente la dimostrazione simultanea di diverse proprietà
+		\qquad Formalizzare e dimostrare la validit\`a dell'induzione strutturale
+		\emph{mutua} che consente la dimostrazione simultanea di diverse propriet\`a
 		per diverse categorie sintattiche.
 		
 		\sectionline
 		
-		\qquad A volte si ha la necessità di dimostrare congiuntamente un gruppo di
+		\qquad A volte si ha la necessit\`a di dimostrare congiuntamente un gruppo di
 		enunciati $S1(n),S2(n),\ldots,Sk(n)$ per induzione su n. Un gruppo di
 		enunciati potrebbe essere dimostrato, dimostrando la congiunzione ($AND$
 		logico) di tutti gli enunciati ($S1(n)\land S2(n)\land \ldots \land Sk(n)$).
@@ -40,7 +40,7 @@
 		esempio che si trova sempre esattamente in un solo stato, ma questo deve
 		essere dimostrato come parte dell'induzione mutua.
 		
-		Proviamo a dimostrare le precedenti proprietà:
+		Proviamo a dimostrare le precedenti propriet\`a:
 		
 		\textbf{BASE:} Per il caso base scegliamo $n=0$. Dato che ci sono due
 		enunciati, ognuno dei quali deve essere dimostrato in entrambe le
@@ -70,7 +70,7 @@
 		  \item $[S1(n+1), \Rightarrow]$ Per ipotesi, $n+1$ \`e pari. Di conseguenza $n$ \`e
 		  dispari.
 		  $S2(n)$ dice che dopo $n$ pressioni l'automa si trova nello stato ON. L'arco
-		  da ON a OFF etichettato `Push` dice che la n+1-esima pressione farà
+		  da ON a OFF etichettato `Push` dice che la n+1-esima pressione far\`a
 		  passare l'automa nello stato OFF.
 		  \item $[S1(n+1), \Leftarrow]$ L'ipotesi \`e che l'automa si trovi nello
 		  stato OFF dopo $n+1$ pressioni. Esaminando l'automa vediamo che l'unico modo
@@ -82,7 +82,7 @@
 		  \item $[S2(n+1), \Rightarrow]$ L'ipotesi afferma che $n+1$ \`e dispari. Di conseguenza
 		  $n$ \`e pari. $[S1(n), \Rightarrow]$ dice che dopo $n$ pressioni l'automa si trova
 		  nello stato OFF. L'arco da OFF a ON con etichetta `Push` dice che la
-		  $n+1$-esima pressione farà passare l'automa nello stato ON.
+		  $n+1$-esima pressione far\`a passare l'automa nello stato ON.
 		  \item $[S2(n+1), \Leftarrow]$ L'ipotesi \`e che l'automa si trovi nello
 		  stato ON dopo $n+1$ pressioni. Esaminando l'automa vediamo che l'unico modo
 		  di pervenire allo stato ON \`e di trovarsi nello stato OFF e di ricevere in
@@ -121,7 +121,7 @@
 	
 	\newpage \section{Esercizio 4.6}
 		\qquad Dimostrare che la semantica denotazionale delle espressioni regolari
-		soddisfa le seguenti semplici proprietà:
+		soddisfa le seguenti semplici propriet\`a:
 		\subsection{punto (a)}
 			$$E+(F+G) \simeq (E+F)+G$$
 		\subsection{punto (e)}
@@ -263,7 +263,7 @@
 		
 		Dato che il membro sinistro \`e sempre composto da un solo carattere,
 		possiamo definire la concatenazione $\cdot$ come il costruttore $\cdot ::
-		\cdot$ e quindi affermarne la continuità grazie al lemma $6.39$. L'unione
+		\cdot$ e quindi affermarne la continuit\`a grazie al lemma $6.39$. L'unione
 		$\cdot\cup\cdot$ pu\`{o} essere assimilata ad una somma disgiunta di domini
 		considerando la somma disgiunta dei linguaggi.
 		
@@ -403,7 +403,7 @@
 	\section{Esercizio 12.3}
 		\qquad Relativamente alla definizione di insieme saturato (Definizione
 		$12.57$), si dimostri che se $\mathcal{L}$ \`e saturato,allora valgono le
-		seguenti proprietà:
+		seguenti propriet\`a:
 		\begin{enumerate}
 		  \item se $L_1,L_2 \in \mathcal{L}$ allora:
 		  \begin{itemize}
