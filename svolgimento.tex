@@ -325,9 +325,10 @@
 		\qquad Avendo aggiunto un tipo di dato di base, la semantica operazionale deve prevedere che si possano valutare funzioni che abbiano, come argomenti, anche le liste oltre ai naturali. Per questo motivo la regola di inferenza $(Bas_1)$ diventa:\\
 		\begin{minipage}{0.7\linewidth}
 			\vspace{5 mm}
-			\begin{flushleft}
-				$\frac{}{\text{b}_j(B_1,\dots,B_m)\rightarrow_D \, B} \, b_j(B_1,\dots,B_m) = B$\\
-			\end{flushleft}
+			$\inferrule
+				{ }
+				{\text{b}_j(B_1,\dots,B_m) \rightarrow_D \, B}
+				\quad b_j(B_1,\dots,B_m) = B$
 		\end{minipage}
 		\hfill
 		\begin{minipage}{0.2\linewidth}
@@ -374,7 +375,90 @@
 		
 		\sectionline
 		
-		\qquad Svolgimento\dots\dots\dots
+		\subsection{Operatore di ricorsione}
+		
+		\qquad Utilizzando l'operatore di ricorsione il termine richiesto pu\`{o} essere cos\`{\i} definito:
+		
+		$$D \triangleq rec.X.coin.(\overline{choc}.X\ \square \ \overline{water}.X)$$
+		
+		Si pu\oacc verificare che le possibili computazioni non accettano monete prima che il prodotto venga effettivamente ritirato. Una delle computazioni possibili, infatti, \eacc la seguente:
+		
+		\begin{minipage}{0.5\linewidth}
+			\vspace{5mm}
+			\begin{flushleft}
+				$rec.X.coin.(\overline{choc}.X\ \square \ \overline{water}.X)$\\
+				\vspace{10 mm}
+				$\overline{choc}.rec.X.coin.(\overline{choc}.X\ \square \ \overline{water}.X)$\\
+				$\qquad\square$\\
+				$\overline{water}.rec.X.coin.(\overline{choc}.X\ \square \ \overline{water}.X)$\\
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.4\linewidth}
+			\begin{flushright}
+				\vspace{5mm}
+				$\xrightarrow{coin}$\\
+				\vspace{9 mm}
+				$\begin{cases}
+					\text{in questo momento non accetta}\\
+					\text{una nuova moneta finch\eacc non viene}\\
+					\text{richiesta l'acqua o il cioccolato}\\
+				\end{cases}$
+			\end{flushright}
+		\end{minipage}
+		
+		\subsection{Costanti di processo}
+		
+		\qquad Se vogliamo risolvere il problema utilizzando costanti di processo, la logica resta la stessa. Definendo la costante $D$ come
+		$$D \triangleq coin.(\overline{choc}.D\ \square \ \overline{water}.D)$$ il risultato ottenuto \eacc identico. La computazione risultante infatti \eacc:
+		
+		\begin{minipage}{0.5\linewidth}
+			\begin{flushleft}
+				$coin.(\overline{choc}.D\ \square \ \overline{water}.D)$\\
+				\vspace{18mm}
+				$(\overline{choc}.D\ \square \ \overline{water}.D)$\\
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.4\linewidth}
+			\begin{flushright}
+				\vspace{10mm}
+				$\xrightarrow{coin}$\\
+				\vspace{10mm}
+				$\begin{cases}
+				\text{come sopra, non accetta}\\
+				\text{una nuova moneta finch\eacc non viene}\\
+				\text{richiesta l'acqua o il cioccolato}\\
+				\end{cases}$
+			\end{flushright}
+		\end{minipage}
+		
+		\subsection{Operatore di replicazione}
+		
+		\qquad Similare \eacc anche la soluzione che prevede l'utilizzo dell'operatore di replicazione. Definiamo $D$ come
+		$$D \triangleq (\overline{a}\ |\ !a.coin.(\overline{choc}.\overline{a}\ \square\ \overline{water}.\overline{a}))\backslash a$$ e vediamo ad esempio una possibile computazione:
+		
+		\begin{minipage}{0.5\linewidth}
+			\begin{flushleft}
+				\vspace{5mm}
+				$(\overline{a}\ |\ !a.coin.(\overline{choc}.\overline{a}\ \square\ \overline{water}.\overline{a}))\backslash a$\\
+				\vspace{5mm}
+				$coin.(\overline{choc}.\overline{a}\ \square\ \overline{water}.\overline{a}))\ |\ !a.coin.(\overline{choc}.\overline{a}\ \square\ \overline{water}.\overline{a}))\backslash a$\\
+				\vspace{5mm}
+				$((\overline{choc}.\overline{a}\ \square\ \overline{water}.\overline{a})\ |\ !a.coin.(\overline{choc}.\overline{a}\ \square\ \overline{water}.\overline{a}))\backslash a$
+			\end{flushleft}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.4\linewidth}
+			\begin{flushright}
+				\vspace{5mm}
+				$\xrightarrow{\tau}$\\
+				\vspace{5mm}
+				$\xrightarrow{coin}$\\
+				\vspace{5mm}
+				(come sopra)
+			\end{flushright}
+		\end{minipage}
 		
 		\newpage
 		
