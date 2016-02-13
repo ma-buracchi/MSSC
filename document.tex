@@ -1,48 +1,29 @@
-%%This is a very basic article template.
-%%There is just one section and two subsections.
-%--------------------------------------------------------------
-% thesis.tex 
-%--------------------------------------------------------------
-% Corso di Laurea in Informatica 
-% http://if.dsi.unifi.it/
-% @Facolt\`a di Scienze Matematiche, Fisiche e Naturali
-% @Universit\`a degli Studi di Firenze
 %--------------------------------------------------------------
 % - template for the main file of Informatica@Unifi Thesis 
 % - based on Classic Thesis Style Copyright (C) 2008 
 %   Andr\'e Miede http://www.miede.de   
 %--------------------------------------------------------------
-\documentclass[oneside,titlepage,fleqn,
+% Avoid warning
+\RequirePackage{silence}
+\WarningFilter{scrbook}{Usage of package `titlesec'}
+\WarningFilter{scrbook}{Activating an ugly workaround}
+\WarningFilter{scrbook}{\float@addtolist}
+\WarningFilter{titlesec}{Non standard sectioning command detected}
+%--------------------------------------------------------------
+\documentclass[final,oneside,titlepage,fleqn,
 	headinclude,12pt,a4paper,BCOR5mm,footinclude]{scrbook}
 %--------------------------------------------------------------
 \newcommand{\myItalianTitle}{MODELLI DI SISTEMI SEQUENZIALI E
 CONCORRENTI\xspace} 
-\newcommand{\myEnglishTitle}{\xspace}
-%use the right myDegree option
 \newcommand{\myDegree}{Corso di Laurea Magistrale in Informatica\xspace}
-%\newcommand{\myDegree}{
-	%Corso di Laurea Specialistica in Scienze e Tecnologie 
-	%dell'Informazione\xspace}
 \newcommand{\myName}{Marco Buracchi\xspace}
 \newcommand{\myProf}{Prof. Rosario Pugliese\xspace}
-\newcommand{\myOtherProf}{Andrea Ceccarelli\xspace}
-\newcommand{\mySupervisor}{Nome Cognome\xspace}
 \newcommand{\myFaculty}{
 	Scuola di Scienze Matematiche, Fisiche e Naturali\xspace}
 \newcommand{\myUni}{\protect{
 	Universit\`a degli Studi di Firenze}\xspace}
 \newcommand{\myLocation}{Firenze\xspace}
 \newcommand{\myTime}{Anno Accademico 2015-2016\xspace} 
-\newcommand{\myVersion}{Version 0.1\xspace}
-\newcommand{\svar}{\textbf{S}}
-\newcommand{\ssvar}{\textbf{SS}}
-\newcommand{\sssvar}{\textbf{SSS}}
-\newcommand{\ssssvar}{\textbf{SSSS}}
-\newcommand{\sssssvar}{\textbf{SSSSS}}
-\newcommand{\ssssssvar}{\textbf{SSSSSS}}
-\newcommand{\sssssssvar}{\textbf{SSSSSSS}}
-\newcommand{\kvar}{\textbf{K}}
-\newcommand{\ivar}{\textbf{I}}
 %--------------------------------------------------------------
 \usepackage{dia-classicthesis-ldpkg}
 %--------------------------------------------------------------
@@ -52,6 +33,25 @@ CONCORRENTI\xspace}
 % minionpro pdfspacing
 \usepackage[eulerchapternumbers,linedheaders,subfig,beramono,eulermath,
 parts]{classicthesis}
+%--------------------------------------------------------------
+\newcommand{\svar}{\textbf{S}}
+\newcommand{\ssvar}{\textbf{SS}}
+\newcommand{\sssvar}{\textbf{SSS}}
+\newcommand{\ssssvar}{\textbf{SSSS}}
+\newcommand{\sssssvar}{\textbf{SSSSS}}
+\newcommand{\ssssssvar}{\textbf{SSSSSS}}
+\newcommand{\sssssssvar}{\textbf{SSSSSSS}}
+\newcommand{\kvar}{\textbf{K}}
+\newcommand{\ivar}{\textbf{I}}
+\newcommand{\aacc}{\`a\ }
+\newcommand{\eacc}{\`e\ }
+\newcommand{\iacc}{\`{\i}\ }
+\newcommand{\oacc}{\`o\ }
+\newcommand{\uacc}{\`u\ }
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\theta}{\vartheta}
+\renewcommand{\rho}{\varrho}
+\renewcommand{\phi}{\varphi}
 %--------------------------------------------------------------
 \usepackage[italian]{babel}
 \usepackage[latin1]{inputenc} 
@@ -113,11 +113,6 @@ parts]{classicthesis}
 		}
 	\end{center}
 }
-\newcommand{\aacc}{\`a\ }
-\newcommand{\eacc}{\`e\ }
-\newcommand{\iacc}{\`{\i}\ }
-\newcommand{\oacc}{\`o\ }
-\newcommand{\uacc}{\`u\ }
 %--------------------------------------------------------------
 \begin{document}
 \frenchspacing

@@ -242,24 +242,23 @@
 		\end{enumerate}
 		dopo aver scelto gli opportuni domini e verificato che $\cdot$ e $\cup$ sono
 		operazioni continue.
-		
 		\sectionline
-		
-		\begin{minipage}{0.2\linewidth}
+		\vspace{5 mm}
+		\begin{minipage}{25 mm}
 			\begin{flushleft}
 				$D:\{a,b\}$\\
 				$\mathbb{D} = up(D)$\\
-				$\mathbb{D}^*$
+				$\mathbb{D}^*$\\
 			\end{flushleft}
 		\end{minipage}
-		\hfill
-		\begin{minipage}{0.7\linewidth}
+		\begin{minipage}{105 mm}
 			\begin{flushright}
 				l'insieme composto dai caratteri 'a' e 'b'\\
 				il dominio ottenuto tramite lifting da D\\
-				il dominio sequenza di $\mathbb{D}$
+				il dominio sequenza di $\mathbb{D}$\\
 			\end{flushright}
-		\end{minipage}\\
+		\end{minipage}
+		\vspace{5 mm}
 		
 		Dato che il membro sinistro \`e sempre composto da un solo carattere,
 		possiamo definire la concatenazione $\cdot$ come il costruttore $\cdot ::
@@ -383,27 +382,28 @@
 		
 		Si pu\oacc verificare che le possibili computazioni non accettano monete prima che il prodotto venga effettivamente ritirato. Una delle computazioni possibili, infatti, \eacc la seguente:
 		
-		\begin{minipage}{0.6\linewidth}
-			\vspace{5mm}
+		\begin{minipage}{0.55\linewidth}
 			\begin{flushleft}
+				\vspace{-4 mm}
 				$recX.coin.(\overline{choc}.X\ + \ \overline{water}.X)$\\
-				\vspace{10 mm}
+				\vspace{20 mm}
 				$\overline{choc}.recX.coin.(\overline{choc}.X + \overline{water}.X)$\\
 				$\qquad +$\\
 				$\overline{water}.recX.coin.(\overline{choc}.X + \overline{water}.X)$\\
 			\end{flushleft}
 		\end{minipage}
-		\hfill
 		\begin{minipage}{0.4\linewidth}
 			\begin{flushright}
-				\vspace{5mm}
+				\vspace{7 mm}
 				$\xrightarrow{coin}$\\
 				\vspace{9 mm}
 				$\begin{cases}
-					\text{in questo momento non accetta}\\
-					\text{una nuova moneta finch\'e non viene}\\
-					\text{richiesta l'acqua o il cioccolato}\\
-				\end{cases}$
+					\text{in questo momento }\\
+					\text{non accetta una nuova}\\
+					\text{moneta finch\'e non}\\
+					\text{viene richiesta l'acqua}\\
+					\text{o il cioccolato}\\
+				\end{cases}$\\
 			\end{flushright}
 		\end{minipage}
 		
@@ -412,24 +412,20 @@
 		\qquad Se vogliamo risolvere il problema utilizzando costanti di processo, la logica resta la stessa. Definendo la costante $D$ come
 		$$D \triangleq coin.(\overline{choc}.D + \overline{water}.D)$$ il risultato ottenuto \eacc identico. La computazione risultante infatti \eacc:
 		
-		\begin{minipage}{0.6\linewidth}
+		\begin{minipage}{0.4\textwidth}
 			\begin{flushleft}
+				\vspace{5 mm}
 				$coin.(\overline{choc}.D + \overline{water}.D)$\\
-				\vspace{18mm}
+				\vspace{5 mm}
 				$(\overline{choc}.D + \overline{water}.D)$\\
 			\end{flushleft}
 		\end{minipage}
-		\hfill
-		\begin{minipage}{0.4\linewidth}
+		\begin{minipage}{0.55\textwidth}
 			\begin{flushright}
-				\vspace{10mm}
+				\vspace{5 mm}
 				$\xrightarrow{coin}$\\
-				\vspace{10mm}
-				$\begin{cases}
-				\text{come sopra, non accetta}\\
-				\text{una nuova moneta finch\'e non viene}\\
-				\text{richiesta l'acqua o il cioccolato}\\
-				\end{cases}$
+				\vspace{5 mm}
+				(come sopra)\\
 			\end{flushright}
 		\end{minipage}
 		
@@ -440,21 +436,22 @@
 		
 		\begin{minipage}{0.6\linewidth}
 			\begin{flushleft}
-				\vspace{5mm}
+				\vspace{5 mm}
 				$(\overline{a}\ |\ !a.coin.(\overline{choc}.\overline{a} + \overline{water}.\overline{a}))\backslash a$\\
-				\vspace{5mm}
+				\vspace{5 mm}
 				$(coin.(\overline{choc}.\overline{a} + \overline{water}.\overline{a})\ |\ !a.coin.(\overline{choc}.\overline{a} + \overline{water}.\overline{a}))\backslash a$\\
-				\vspace{7mm}
+				\vspace{7 mm}
 				$((\overline{choc}.\overline{a} + \overline{water}.\overline{a})\ |\ !a.coin.(\overline{choc}.\overline{a} + \overline{water}.\overline{a}))\backslash a$
 			\end{flushleft}
 		\end{minipage}
 		\hfill
-		\begin{minipage}{0.4\linewidth}
+		\begin{minipage}{0.1\linewidth}
 			\begin{flushright}
+				\vspace{5 mm}
 				$\xrightarrow{\tau}$\\
-				\vspace{8mm}
+				\vspace{8 mm}
 				$\xrightarrow{coin}$\\
-				\vspace{8mm}
+				\vspace{8 mm}
 				(come sopra)
 			\end{flushright}
 		\end{minipage}
@@ -484,8 +481,7 @@
 		\newpage
 		
 	\section{Esercizio 12.3}
-		\qquad Relativamente alla definizione di insieme saturato (Definizione
-		$12.57$), si dimostri che se $\mathcal{L}$ \`e saturato,allora valgono le
+		\quad Relativamente alla definizione di insieme saturato (Definizione $12.57$), si dimostri che se $\mathcal{L}$ \`e saturato,allora valgono le
 		seguenti propriet\`a:
 		\begin{enumerate}
 		  \item se $L_1,L_2 \in \mathcal{L}$ allora:
