@@ -2,13 +2,13 @@
 %\setcounter{secnumdepth}{0}
 \chapter{Svolgimento esercizi assegnati}
 	\section{Esercizio 2.13}
-		\qquad Formalizzare e dimostrare la validit\`a dell'induzione strutturale
+		Formalizzare e dimostrare la validit\`a dell'induzione strutturale
 		\emph{mutua} che consente la dimostrazione simultanea di diverse propriet\`a
 		per diverse categorie sintattiche.
 		
 		\sectionline
 		
-		\qquad A volte si ha la necessit\`a di dimostrare congiuntamente un gruppo di
+		A volte si ha la necessit\`a di dimostrare congiuntamente un gruppo di
 		enunciati $S1(n),S2(n),\ldots,Sk(n)$ per induzione su n. Un gruppo di
 		enunciati potrebbe essere dimostrato, dimostrando la congiunzione ($AND$
 		logico) di tutti gli enunciati ($S1(n)\land S2(n)\land \ldots \land Sk(n)$).
@@ -19,10 +19,11 @@
 		Consideriamo ad esempio un interruttore on/off, rappresentato con il seguente
 		automa:
 		
-		\begin{figure*}[h]
+		\begin{figure}[h]
 			\centering
 			\includegraphics[scale=1]{img/Interruttore}
-		\end{figure*}
+			\caption{Un semplice interruttore}
+		\end{figure}
 		
 		Ad ogni pressione del pulsante lo stato cambia tra ON e OFF. Proviamo a
 		dimostrare i seguenti due enunciati:
@@ -105,22 +106,23 @@
 		\newpage
 		
 	\section{Esercizio 3.13}
-		\qquad Fornire l'espressione, derivante dalla sintassi concreta
+		Fornire l'espressione, derivante dalla sintassi concreta
 		dell'esercizio $11$, che ha il seguente albero di derivazione:
 		
-		\begin{figure*}[h]
+		\begin{figure}[h]
 			\centering
 			\includegraphics[scale=0.5]{img/3-13}
-		\end{figure*}
+			\caption{Albero di derivazione}
+		\end{figure}
 		
 		\sectionline
 		
-		\qquad L'espressione derivante \`e: $(1*12)*(4+5)$
+		L'espressione derivante \`e: $(1*12)*(4+5)$
 		
 		\newpage
 	
 	\newpage \section{Esercizio 4.6}
-		\qquad Dimostrare che la semantica denotazionale delle espressioni regolari
+		Dimostrare che la semantica denotazionale delle espressioni regolari
 		soddisfa le seguenti semplici propriet\`a:
 		\subsection{punto (a)}
 			$$E+(F+G) \simeq (E+F)+G$$
@@ -133,7 +135,7 @@
 			
 		\sectionline
 		
-		\qquad La semantica denotazionale delle espressioni regolari \`{e} cos\`{\i} definita:
+		La semantica denotazionale delle espressioni regolari \`{e} cos\`{\i} definita:
 		\begin{itemize}
 		  \item $\mathcal{L} \llbracket 0 \rrbracket = \emptyset$
 		  \item $\mathcal{L} \llbracket 1 \rrbracket = \{\epsilon\}$
@@ -187,7 +189,7 @@
 			
 	\section{Esercizio 5.7}
 	
-		\qquad Siano:
+		Siano:
 		\begin{equation*}
 			\svar = \lambda xyz.xz(yz)
 		\end{equation*}
@@ -235,7 +237,7 @@
 		\newpage
 	
 	\section{Esercizio 6.7}
-		\qquad Risolvere le equazioni fra linguaggi:
+		Risolvere le equazioni fra linguaggi:
 		\begin{enumerate}
 		  \item $X = \{a\} \cdot X$
 		  \item $X = {a} \cup (\{b\} \cdot X)$
@@ -278,14 +280,14 @@
 		\newpage
 		
 	\section{Esercizio 7.3}
-		\qquad Introdurre in SLF un tipo di dato \emph{lista di naturali} e scrivere
+		Introdurre in SLF un tipo di dato \emph{lista di naturali} e scrivere
 		una funzione che, data una lista, ne calcola la lunghezza.
 		
 		\sectionline
 		
 		\subsection{Sintassi}
 		
-		\qquad Per introdurre il tipo di dati \emph{lista di naturali} abbiamo
+		Per introdurre il tipo di dati \emph{lista di naturali} abbiamo
 		sicuramente bisogno di aggiungere i nuovi simboli $\{[,]\}$ e le nuove
 		funzioni di base \textbf{hd}$(l)$, \textbf{tl}$(l)$, \textbf{null}$(l)$ e
 		\textbf{remove}$(n,l)$ alla sintassi di SLF. Aggiungiamo ai valori di base il tipo di dato
@@ -321,7 +323,7 @@
 		
 		\subsection{Semantica operazionale}
 		
-		\qquad Avendo aggiunto un tipo di dato di base, la semantica operazionale deve prevedere che si possano valutare funzioni che abbiano, come argomenti, anche le liste oltre ai naturali. Per questo motivo la regola di inferenza $(Bas_1)$ diventa:\\
+		Avendo aggiunto un tipo di dato di base, la semantica operazionale deve prevedere che si possano valutare funzioni che abbiano, come argomenti, anche le liste oltre ai naturali. Per questo motivo la regola di inferenza $(Bas_1)$ diventa:\\
 		\begin{minipage}{0.7\linewidth}
 			\vspace{5 mm}
 			$\inferrule
@@ -339,7 +341,7 @@
 		
 		\subsection{Semantica denotazionale}
 		
-		\qquad Sicuramente la semantica denotazionale ha bisogno di qualche modifica in pi\`{u}, a partire dai tipi delle funzioni semantiche. Dobbiamo considerare che adesso i programmi (risp. i termini) possono restituire liste (possono essere composti da liste) e il dominio $(\mathbb{FUN}_m)^n$ rappresenter\`{a} il dominio delle funzioni continue con $m$ argomenti che potranno essere naturali o liste. Per questi motivi i nuovi tipi saranno i seguenti:
+		Sicuramente la semantica denotazionale ha bisogno di qualche modifica in pi\`{u}, a partire dai tipi delle funzioni semantiche. Dobbiamo considerare che adesso i programmi (risp. i termini) possono restituire liste (possono essere composti da liste) e il dominio $(\mathbb{FUN}_m)^n$ rappresenter\`{a} il dominio delle funzioni continue con $m$ argomenti che potranno essere naturali o liste. Per questi motivi i nuovi tipi saranno i seguenti:
 		
 		\begin{align*}
 		\mathcal{P} & : \, \emph{Prog}\rightarrow (\mathbb{NAT}+\mathbb{LIST})\\
@@ -357,7 +359,7 @@
 		\end{align*}
 		
 		\subsection{Funzione}
-		\qquad La funzione richiesta pu\`o essere implementata come segue:
+		La funzione richiesta pu\`o essere implementata come segue:
 		
 		$$\textbf{f}(l) \Leftarrow \textbf{if}\text{ }\textbf{null}(l)\text{
 		}\textbf{then}\text{ }0\text{ }\textbf{else}\text{ }1 +
@@ -366,7 +368,7 @@
 		\newpage
 		
 	\section{Esercizio 10.2}
-		\qquad Si scriva un termine che descriva un distributore automatico in grado
+		Si scriva un termine che descriva un distributore automatico in grado
 		di offrire acqua o cioccolato un numero illimitato di volte, senza accettare
 		monete fino a che non \`e stato servito l'utente precedente. Si risolva
 		l'esercizio in tre modi: con l'operatore di ricorsione, con la definizione di
@@ -376,7 +378,7 @@
 		
 		\subsection{Operatore di ricorsione}
 		
-		\qquad Utilizzando l'operatore di ricorsione il termine richiesto pu\`{o} essere cos\`{\i} definito:
+		Utilizzando l'operatore di ricorsione il termine richiesto pu\`{o} essere cos\`{\i} definito:
 		
 		$$recX.coin.(\overline{choc}.X + \overline{water}.X)$$
 		
@@ -409,7 +411,7 @@
 		
 		\subsection{Costanti di processo}
 		
-		\qquad Se vogliamo risolvere il problema utilizzando costanti di processo, la logica resta la stessa. Definendo la costante $D$ come
+		Se vogliamo risolvere il problema utilizzando costanti di processo, la logica resta la stessa. Definendo la costante $D$ come
 		$$D \triangleq coin.(\overline{choc}.D + \overline{water}.D)$$ il risultato ottenuto \eacc identico. La computazione risultante infatti \eacc:
 		
 		\begin{minipage}{0.4\textwidth}
@@ -431,7 +433,7 @@
 		
 		\subsection{Operatore di replicazione}
 		
-		\qquad Similare \eacc anche la soluzione che prevede l'utilizzo dell'operatore di replicazione. Definiamo $D$ come
+		Similare \eacc anche la soluzione che prevede l'utilizzo dell'operatore di replicazione. Definiamo $D$ come
 		$$(\overline{a}\ |\ !a.coin.(\overline{choc}.\overline{a} + \overline{water}.\overline{a}))\backslash a$$ e vediamo ad esempio una possibile computazione:
 		
 		\begin{minipage}{0.6\linewidth}
@@ -459,30 +461,93 @@
 		\newpage
 		
 	\section{Esercizio 11.3}
-		\qquad Utilizzando la caratterizzazione delle simulazioni forti vista
+		Utilizzando la caratterizzazione delle simulazioni forti vista
 		nell'Esercizio $11.1$, si provi che \emph{Id} \`e una simulazione e che se
 		\emph{R} ed \emph{S} sono simulazioni allora $\emph{R} \cup \emph{S}$ ed
 		\emph{RS} sono simulazioni.
 		
 		\sectionline
+		La caratterizzazione alla quale si fa riferimento \eacc quella che afferma che una relazione $R \subseteq Q \times Q$ \eacc una simulazione forte se e solo se $$R^{-1} \xrightarrow{a} \ \subseteq \ \xrightarrow{a}R^{-1} \qquad \forall a \in A$$
 		
-		\qquad Svolgimento\ldots\ldots\ldots
+		Dalla definizione di composizione di relazioni ricaviamo dal primo membro che $\forall \ p,q \in Q$ e $\forall \ a \in A$
+		\begin{equation}
+		\label{eq:uno}
+		\begin{aligned}
+		<p,q>\ \in R^{-1}\xrightarrow{a} & \Leftrightarrow \exists r: (p \ R^{-1} \ r) \land (r \xrightarrow{a} q)\\
+		& \Leftrightarrow \exists r: (r \ R \ p) \land (r \xrightarrow{a} q)\\
+		\end{aligned}
+		\end{equation}
+		similarmente dal secondo membro
+		\begin{equation}
+		\label{eq:due}
+		\begin{aligned}
+		<p,q>\ \in \ \xrightarrow{a} R^{-1} & \Leftrightarrow \exists \ p^{'}: (p \xrightarrow{a} p^{'}) \land (p^{'} \ R^{-1} q)\\
+		& \Leftrightarrow \exists \ p^{'}: (p \xrightarrow{a} p^{'}) \land (q \ R \ p^{'})\\
+		\end{aligned}
+		\end{equation}
+		dalla caratterizzazione ricaviamo infine che $\eqref{eq:uno} \Rightarrow \eqref{eq:due}$
 		
+		Dimostriamo adesso che questa implicazione vale per tutti e tre i nostri casi.
+		
+		\subsection{Caso Id}
+		
+			In questo caso vale che $R^{-1} = R = \emph{Id}$. Dalla \eqref{eq:uno} sappiamo che $<p,q>\ \in \ \emph{Id}^{-1} \xrightarrow{a}$ e quindi, in particolare, che $\exists r: (p \ \emph{Id}^{-1} \ r) \land (r \xrightarrow{a} q)$.
+			
+			Poich\'e $r$ \eacc in relazione $\emph{Id}$ con $p$, ricaviamo che $p = r$ e che $p \xrightarrow{a} q$. Da questo si vede che l'implicazione \eacc verificata. Infatti, $(p \xrightarrow{a} q) \land (q \ \emph{Id} \ q)$
+			
+			\newpage
+			
+		\subsection{Caso RUS}
+		
+			Per ipotesi, $R$ e $S$ sono simulazioni quindi, sempre dalla \eqref{eq:uno}, sappiamo che:
+			\vspace{-10 mm}
+			\begin{center}
+				\begin{equation}
+				\label{tre}
+				<p,q>\ \in \ R^{-1} \xrightarrow{a}  \Leftrightarrow \exists r: (r \ R \ p) \land (r \xrightarrow{a} q)
+				\end{equation}
+			\end{center}
+			\vspace{-10 mm}
+			\begin{center}
+				\begin{equation}
+				\label{quattro}
+				<p,q>\ \in \ S^{-1} \xrightarrow{a}  \Leftrightarrow \exists s: (s \ S \ p) \land (s \xrightarrow{a} q)
+				\end{equation}
+			\end{center}
+			Adesso dobbiamo dimostrare che $\forall \ p,q \in Q$ e $\forall \ a \in A$ $$\exists \ r: (r \ R\cup S \ p) \land (r \xrightarrow{a} q) \Rightarrow \exists p^{'}: (p \xrightarrow{a} p^{'})\land (q \ R\cup S \ p^{'})$$
+			Procediamo con la dimostrazione: 
+			$$\exists \ r: (r \ R\cup S \ p) \land (r \xrightarrow{a} q) \Rightarrow \exists p^{'}: (p \xrightarrow{a} p^{'})\land (q \ R\cup S \ p^{'})$$
+			\vspace{-8 mm}
+			$$\Updownarrow$$
+			$$\exists r: ((r \ R\ p) \lor (r \ S\ p)) \land (r \xrightarrow{a} q) \Rightarrow \exists p^{'}: (p \xrightarrow{a} p^{'})\land ((q \ R\ \ p^{'})\lor(q \ S \ p^{'}))$$
+			I casi sono due:
+			\begin{itemize}
+				\item se $r \ R\ p$, allora, per definizione di simulazione, se $r \xrightarrow{a} q$ allora $p\xrightarrow{a} p^{'}$ per qualche $p^{'}\in Q$ tale che $q \ R \ p^{'}$ e questo soddisfa l'implicazione.
+				\item similarmente, se $r \ S\ p$, allora, per definizione di simulazione, se $r \xrightarrow{a} q$ allora $p\xrightarrow{a} p^{'}$ per qualche $p^{'}\in Q$ tale che $q \ S \ p^{'}$ e questo soddisfa l'implicazione.
+			\end{itemize}
+			
+		\subsection{Caso RS}
+		
+		Come per il caso $R\cup S$ partiamo dall'ipotesi che $R$ e $S$ sono simulazioni. Quindi abbiamo che $$<p,q>\ \in \ RS^{-1} \xrightarrow{a}  \Leftrightarrow \exists r: (r \ RS \ p) \land (r \xrightarrow{a} q)$$
+		e dobbiamo dimostrare che
+		$$\exists r: (r \ RS \ p) \land (r \xrightarrow{a} q) \Rightarrow \exists p^{'}: (p \xrightarrow{a} p^{'}) \land (q \ RS \ p^{'})$$
+		Per definizione di composizione di relazioni, se $\exists r: (r \ RS \ p)$ allora $\exists s: r\ R\ s\ S\ p$ e dato che $R$ e $S$ sono simulazioni questo implica che $\exists s^{'}: s \xrightarrow{a} s^{'}$ con $q R s^{'}$(perch\'e $r \xrightarrow{a}q$) e che $\exists p^{'}: p \xrightarrow{a} p^{'}$ e $s^{'}\ S\ p^{'}$. Da questo si deduce che $q\ RS\ p^{'}$ come richiesto.
+			
 		\newpage
 		
 	\section{Esercizio 11.8}
-		\qquad Dimostrare che l'unione di tutte le bisimulazioni di branching \`e una
-		bisimulazione di branching e che essa \`e un'equivalenza.
+		Dimostrare che l'unione di tutte le bisimulazioni di branching \eacc una
+		bisimulazione di branching e che essa \eacc un'equivalenza.
 		
 		\sectionline
 		
-		\qquad Svolgimento\ldots\ldots\ldots
+		Svolgimento\ldots\ldots\ldots
 		
 		\newpage
 		
 	\section{Esercizio 12.3}
 		\quad Relativamente alla definizione di insieme saturato (Definizione $12.57$), si dimostri che se $\mathcal{L}$ \`e saturato,allora valgono le
-		seguenti propriet\`a:
+		seguenti propriet\aacc :
 		\begin{enumerate}
 		  \item se $L_1,L_2 \in \mathcal{L}$ allora:
 		  \begin{itemize}
@@ -494,4 +559,4 @@
 		
 		\sectionline
 		
-		\qquad Svolgimento\ldots\ldots\ldots
+		Svolgimento\ldots\ldots\ldots

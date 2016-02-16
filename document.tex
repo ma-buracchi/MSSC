@@ -43,11 +43,6 @@ parts]{classicthesis}
 \newcommand{\sssssssvar}{\textbf{SSSSSSS}}
 \newcommand{\kvar}{\textbf{K}}
 \newcommand{\ivar}{\textbf{I}}
-\newcommand{\aacc}{\`a\ }
-\newcommand{\eacc}{\`e\ }
-\newcommand{\iacc}{\`{\i}\ }
-\newcommand{\oacc}{\`o\ }
-\newcommand{\uacc}{\`u\ }
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\theta}{\vartheta}
 \renewcommand{\rho}{\varrho}
@@ -68,6 +63,7 @@ parts]{classicthesis}
 \usepackage[object=vectorian]{pgfornament}
 \usepackage{listings}
 \usepackage{mathpartir}
+\usepackage{accent}
 %--------------------------------------------------------------
 \newlength{\abcd} % for ab..z string length calculation
 % how all the floats will be aligned
@@ -124,6 +120,7 @@ parts]{classicthesis}
 %--------------------------------------------------------------
 \include{titlePage}
 \tableofcontents
+\listoffigures
 \include{svolgimento}
 \begin{appendices}
 	\include{appendiceA}
