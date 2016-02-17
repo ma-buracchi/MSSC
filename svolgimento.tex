@@ -467,71 +467,8 @@
 		\emph{RS} sono simulazioni.
 		
 		\sectionline
-		La caratterizzazione alla quale si fa riferimento \eacc quella che afferma che una relazione $R \subseteq Q \times Q$ \eacc una simulazione forte se e solo se $$R^{-1} \xrightarrow{a} \ \subseteq \ \xrightarrow{a}R^{-1} \qquad \forall a \in A$$
 		
-		Dalla definizione di composizione di relazioni ricaviamo dal primo membro che $\forall \ p,q \in Q$ e $\forall \ a \in A$
-		\begin{equation}
-		\label{eq:uno}
-		\begin{aligned}
-		<p,q>\ \in R^{-1}\xrightarrow{a} & \Leftrightarrow \exists r: (p \ R^{-1} \ r) \land (r \xrightarrow{a} q)\\
-		& \Leftrightarrow \exists r: (r \ R \ p) \land (r \xrightarrow{a} q)\\
-		\end{aligned}
-		\end{equation}
-		similarmente dal secondo membro
-		\begin{equation}
-		\label{eq:due}
-		\begin{aligned}
-		<p,q>\ \in \ \xrightarrow{a} R^{-1} & \Leftrightarrow \exists \ p^{'}: (p \xrightarrow{a} p^{'}) \land (p^{'} \ R^{-1} q)\\
-		& \Leftrightarrow \exists \ p^{'}: (p \xrightarrow{a} p^{'}) \land (q \ R \ p^{'})\\
-		\end{aligned}
-		\end{equation}
-		dalla caratterizzazione ricaviamo infine che $\eqref{eq:uno} \Rightarrow \eqref{eq:due}$
-		
-		Dimostriamo adesso che questa implicazione vale per tutti e tre i nostri casi.
-		
-		\subsection{Caso Id}
-		
-			In questo caso vale che $R^{-1} = R = \emph{Id}$. Dalla \eqref{eq:uno} sappiamo che $<p,q>\ \in \ \emph{Id}^{-1} \xrightarrow{a}$ e quindi, in particolare, che $\exists r: (p \ \emph{Id}^{-1} \ r) \land (r \xrightarrow{a} q)$.
-			
-			Poich\'e $r$ \eacc in relazione $\emph{Id}$ con $p$, ricaviamo che $p = r$ e che $p \xrightarrow{a} q$. Da questo si vede che l'implicazione \eacc verificata. Infatti, $(p \xrightarrow{a} q) \land (q \ \emph{Id} \ q)$
-			
-			\newpage
-			
-		\subsection{Caso RUS}
-		
-			Per ipotesi, $R$ e $S$ sono simulazioni quindi, sempre dalla \eqref{eq:uno}, sappiamo che:
-			\vspace{-10 mm}
-			\begin{center}
-				\begin{equation}
-				\label{tre}
-				<p,q>\ \in \ R^{-1} \xrightarrow{a}  \Leftrightarrow \exists r: (r \ R \ p) \land (r \xrightarrow{a} q)
-				\end{equation}
-			\end{center}
-			\vspace{-10 mm}
-			\begin{center}
-				\begin{equation}
-				\label{quattro}
-				<p,q>\ \in \ S^{-1} \xrightarrow{a}  \Leftrightarrow \exists s: (s \ S \ p) \land (s \xrightarrow{a} q)
-				\end{equation}
-			\end{center}
-			Adesso dobbiamo dimostrare che $\forall \ p,q \in Q$ e $\forall \ a \in A$ $$\exists \ r: (r \ R\cup S \ p) \land (r \xrightarrow{a} q) \Rightarrow \exists p^{'}: (p \xrightarrow{a} p^{'})\land (q \ R\cup S \ p^{'})$$
-			Procediamo con la dimostrazione: 
-			$$\exists \ r: (r \ R\cup S \ p) \land (r \xrightarrow{a} q) \Rightarrow \exists p^{'}: (p \xrightarrow{a} p^{'})\land (q \ R\cup S \ p^{'})$$
-			\vspace{-8 mm}
-			$$\Updownarrow$$
-			$$\exists r: ((r \ R\ p) \lor (r \ S\ p)) \land (r \xrightarrow{a} q) \Rightarrow \exists p^{'}: (p \xrightarrow{a} p^{'})\land ((q \ R\ \ p^{'})\lor(q \ S \ p^{'}))$$
-			I casi sono due:
-			\begin{itemize}
-				\item se $r \ R\ p$, allora, per definizione di simulazione, se $r \xrightarrow{a} q$ allora $p\xrightarrow{a} p^{'}$ per qualche $p^{'}\in Q$ tale che $q \ R \ p^{'}$ e questo soddisfa l'implicazione.
-				\item similarmente, se $r \ S\ p$, allora, per definizione di simulazione, se $r \xrightarrow{a} q$ allora $p\xrightarrow{a} p^{'}$ per qualche $p^{'}\in Q$ tale che $q \ S \ p^{'}$ e questo soddisfa l'implicazione.
-			\end{itemize}
-			
-		\subsection{Caso RS}
-		
-		Come per il caso $R\cup S$ partiamo dall'ipotesi che $R$ e $S$ sono simulazioni. Quindi abbiamo che $$<p,q>\ \in \ RS^{-1} \xrightarrow{a}  \Leftrightarrow \exists r: (r \ RS \ p) \land (r \xrightarrow{a} q)$$
-		e dobbiamo dimostrare che
-		$$\exists r: (r \ RS \ p) \land (r \xrightarrow{a} q) \Rightarrow \exists p^{'}: (p \xrightarrow{a} p^{'}) \land (q \ RS \ p^{'})$$
-		Per definizione di composizione di relazioni, se $\exists r: (r \ RS \ p)$ allora $\exists s: r\ R\ s\ S\ p$ e dato che $R$ e $S$ sono simulazioni questo implica che $\exists s^{'}: s \xrightarrow{a} s^{'}$ con $q R s^{'}$(perch\'e $r \xrightarrow{a}q$) e che $\exists p^{'}: p \xrightarrow{a} p^{'}$ e $s^{'}\ S\ p^{'}$. Da questo si deduce che $q\ RS\ p^{'}$ come richiesto.
+		Svolgimento\ldots\ldots\ldots
 			
 		\newpage
 		
