@@ -130,8 +130,8 @@
 			$$E(FG) \simeq (EF)G$$
 		\subsection{punto (f)}
 			$$E(F+G) \simeq EF+EG$$
-		\subsection{punto (j)}
-			$$E^* \simeq 1+E^*E$$
+%		\subsection{punto (j)}
+%			$$E^* \simeq 1+E^*E$$
 			
 		\sectionline
 		
@@ -467,18 +467,136 @@
 		\emph{RS} sono simulazioni.
 		
 		\sectionline
+		La caratterizzazione alla quale si fa riferimento \eacc quella che afferma che una relazione $R \subseteq Q \times Q$ \eacc una simulazione forte se e solo se $$R^{-1} \xrightarrow{a} \ \subseteq \ \xrightarrow{a}R^{-1} \qquad \forall a \in A$$
 		
-		Svolgimento\ldots\ldots\ldots
+		Dalla definizione di composizione di relazioni ricaviamo dal primo membro che $\forall \ p,q \in Q$ e $\forall \ a \in A$
+		\begin{equation}
+		\label{eq:uno}
+		\begin{aligned}
+		<p,q>\ \in R^{-1}\xrightarrow{a} & \Leftrightarrow \exists r: (p \ R^{-1} \ r) \land (r \xrightarrow{a} q)\\
+		& \Leftrightarrow \exists r: (r \ R \ p) \land (r \xrightarrow{a} q)\\
+		\end{aligned}
+		\end{equation}
+		similarmente dal secondo membro
+		\begin{equation}
+		\label{eq:due}
+		\begin{aligned}
+		<p,q>\ \in \ \xrightarrow{a} R^{-1} & \Leftrightarrow \exists \ p^{'}: (p \xrightarrow{a} p^{'}) \land (p^{'} \ R^{-1} q)\\
+		& \Leftrightarrow \exists \ p^{'}: (p \xrightarrow{a} p^{'}) \land (q \ R \ p^{'})\\
+		\end{aligned}
+		\end{equation}
+		dalla caratterizzazione ricaviamo infine che $\eqref{eq:uno} \Rightarrow \eqref{eq:due}$
+		
+		Dimostriamo adesso che questa implicazione vale per tutti e tre i nostri casi.
+		
+		\subsection{Caso Id}
+		
+		In questo caso vale che $R^{-1} = R = \emph{Id}$. Dalla \eqref{eq:uno} sappiamo che $<p,q>\ \in \ \emph{Id}^{-1} \xrightarrow{a}$ e quindi, in particolare, che $\exists r: (p \ \emph{Id}^{-1} \ r) \land (r \xrightarrow{a} q)$.
+		
+		Poich\'e $r$ \eacc in relazione $\emph{Id}$ con $p$, ricaviamo che $p = r$ e che $p \xrightarrow{a} q$. Da questo si vede che l'implicazione \eacc verificata. Infatti, $(p \xrightarrow{a} q) \land (q \ \emph{Id} \ q)$
+		
+		\newpage
+		
+		\subsection{Caso RUS}
+		
+		Per ipotesi, $R$ e $S$ sono simulazioni quindi, sempre dalla \eqref{eq:uno}, sappiamo che:
+		\vspace{-10 mm}
+		\begin{center}
+			\begin{equation}
+			\label{tre}
+			<p,q>\ \in \ R^{-1} \xrightarrow{a}  \Leftrightarrow \exists r: (r \ R \ p) \land (r \xrightarrow{a} q)
+			\end{equation}
+		\end{center}
+		\vspace{-10 mm}
+		\begin{center}
+			\begin{equation}
+			\label{quattro}
+			<p,q>\ \in \ S^{-1} \xrightarrow{a}  \Leftrightarrow \exists s: (s \ S \ p) \land (s \xrightarrow{a} q)
+			\end{equation}
+		\end{center}
+		Adesso dobbiamo dimostrare che $\forall \ p,q \in Q$ e $\forall \ a \in A$ $$\exists \ r: (r \ R\cup S \ p) \land (r \xrightarrow{a} q) \Rightarrow \exists p^{'}: (p \xrightarrow{a} p^{'})\land (q \ R\cup S \ p^{'})$$
+		Procediamo con la dimostrazione: 
+		$$\exists \ r: (r \ R\cup S \ p) \land (r \xrightarrow{a} q) \Rightarrow \exists p^{'}: (p \xrightarrow{a} p^{'})\land (q \ R\cup S \ p^{'})$$
+		\vspace{-8 mm}
+		$$\Updownarrow$$
+		$$\exists r: ((r \ R\ p) \lor (r \ S\ p)) \land (r \xrightarrow{a} q) \Rightarrow \exists p^{'}: (p \xrightarrow{a} p^{'})\land ((q \ R\ \ p^{'})\lor(q \ S \ p^{'}))$$
+		I casi sono due:
+		\begin{itemize}
+			\item se $r \ R\ p$, allora, per definizione di simulazione, se $r \xrightarrow{a} q$ allora $p\xrightarrow{a} p^{'}$ per qualche $p^{'}\in Q$ tale che $q \ R \ p^{'}$ e questo soddisfa l'implicazione.
+			\item similarmente, se $r \ S\ p$, allora, per definizione di simulazione, se $r \xrightarrow{a} q$ allora $p\xrightarrow{a} p^{'}$ per qualche $p^{'}\in Q$ tale che $q \ S \ p^{'}$ e questo soddisfa l'implicazione.
+		\end{itemize}
+		
+		\subsection{Caso RS}
+		
+		Come per il caso $R\cup S$ partiamo dall'ipotesi che $R$ e $S$ sono simulazioni. Quindi abbiamo che $$<p,q>\ \in \ RS^{-1} \xrightarrow{a}  \Leftrightarrow \exists r: (r \ RS \ p) \land (r \xrightarrow{a} q)$$
+		e dobbiamo dimostrare che
+		$$\exists r: (r \ RS \ p) \land (r \xrightarrow{a} q) \Rightarrow \exists p^{'}: (p \xrightarrow{a} p^{'}) \land (q \ RS \ p^{'})$$
+		Per definizione di composizione di relazioni, se $\exists r: (r \ RS \ p)$ allora $\exists s: r\ R\ s\ S\ p$ e dato che $R$ e $S$ sono simulazioni questo implica che $\exists s^{'}: s \xrightarrow{a} s^{'}$ con $q R s^{'}$(perch\'e $r \xrightarrow{a}q$) e che $\exists p^{'}: p \xrightarrow{a} p^{'}$ e $s^{'}\ S\ p^{'}$. Da questo si deduce che $q\ RS\ p^{'}$ come richiesto.
 			
 		\newpage
 		
 	\section{Esercizio 11.8}
-		Dimostrare che l'unione di tutte le bisimulazioni di branching \eacc una
+		Dimostrare che l'unione di tutte le bisimulazioni di branching ($\approx_{b}$) \eacc una
 		bisimulazione di branching e che essa \eacc un'equivalenza.
 		
 		\sectionline
 		
-		Svolgimento\ldots\ldots\ldots
+		Possiamo iniziare dimostrando che l'unione di due bisimulazioni di branching \eacc ancora una bisimulazione di branching. Supponiamo che $S_{1},S_{2}$ siano due bisimulazioni di branching. Per definizione, se, dati $<p,q>\in S_{1}\cup S_{2}$ e $p \xrightarrow{\mu}p^{'}$ con $\mu \in A_{\tau}$ e $p^{'}\in Q$ allora deve valere almeno una delle seguenti due condizioni:
+		\begin{enumerate}
+			\item $\mu = \tau\ $ e $\ <p^{'},q>\in S_{1}\cup S_{2}$
+			\item $q \Rightarrow q^{''}\xrightarrow{\mu}q^{'}$ per qualche $q^{'},q^{''}\in Q$ tali che $<p,q^{''}>\in S_{1}\cup S_{2}$ e $<p^{'},q^{'}>\in S_{1}\cup S_{2}$
+		\end{enumerate}
+		
+		Se $<p,q>\in S_{1}\cup S_{2}$ allora o $<p,q>\in S_{1}$ o $<p,q>\in S_{2}$. Senza perdere in generalit\aacc supponiamo che $<p,q>\in S_{1}$. Per definizione, se $<p,q>\in S_{1}$ e $p \xrightarrow{\mu}p^{'}$ allora:
+		\begin{enumerate}
+			\item $\mu = \tau\ $ e $\ <p^{'},q>\in S_{1}\ $ e quindi $<p^{'},q>\in S_{1}\cup S_{2}$
+			\item $q \Rightarrow q^{''}\xrightarrow{\mu}q^{'}$ per qualche $q^{'},q^{''}\in Q$ tali che $<p,q^{''}>\in S_{1}$ e $<p^{'},q^{'}>\in S_{1}$ e quindi $<p,q^{''}>\in S_{1}\cup S_{2}$ e $<p^{'},q^{'}>\in S_{1}\cup S_{2}$
+		\end{enumerate} 
+		In entrambi i casi le propriet\aacc valgono. Generalizzando, \eacc possibile vedere $\approx_{b}$ come l'unione delle singole bisimulazioni $S_{1}\cup S_{2}\cup S_{3}\cup S_{4}\dots$
+		
+		Per dimostrare che $\approx_{b}$ \eacc un'equivalenza dobbiamo dimostrare che \eacc \emph{riflessiva}, \emph{simmetrica} e \emph{transitiva}. Per fare questo in maniera agevole, dimostriamo prima che le seguenti relazioni sono bisimulazioni di branching assumendo che $Id$ sia la funzione \emph{identit\aacc} e che ogni $S_{i}$ sia una bisimulazione di branching:
+		\begin{enumerate}
+			\item $Id$
+			\item $S^{-1}$
+			\item $S_{1}S_{2}$
+		\end{enumerate}
+		
+		Dimostriamo il punto $1$:
+		Per definizione, se $<p,p>\in Id$ e $p \xrightarrow{\mu}p^{'}$ allora il secondo punto della definizione di bisimilarit\aacc di branching \eacc soddisfatto in questo modo:
+		\begin{itemize}
+			\item $p \Rightarrow p\xrightarrow{\mu}p^{'}$ e $<p,p>\in Id$ come $<p^{'},p^{'}>\in Id$
+		\end{itemize}
+		
+		Similarmente, per il punto $2$ dobbiamo far vedere che se $<p,q>\in S^{-1}$ allora deve valere:
+		\begin{itemize}
+			\item $q \Rightarrow q\xrightarrow{\mu}q^{'}$ e $<p,q>,<p^{'},q^{'}>\in S^{-1}$
+		\end{itemize}
+		Se $<p,q>\in S^{-1}$ allora $<q,p>\in S$ e, se $q \xrightarrow{\mu}q^{'}$ allora vale:
+		\begin{itemize}
+			\item $p \Rightarrow p\xrightarrow{\mu}p^{'}$ e $<q,p>,<q^{'},p^{'}>\in S$
+		\end{itemize}
+		Se $<q^{'},p^{'}>\in S$ allora $<p^{'},q^{'}>\in S^{-1}$ come volevamo dimostrare ($<p,q> \in S^{-1}$ ovviamente).
+		
+		\vspace{5 mm}
+		Facciamo lo stesso ragionamento per il punto $3$. Supponiamo che $<p,q>\in S_{1}S_{2}$ e facciamo vedere che se $p \xrightarrow{\mu}p^{'}$ allora vale:
+		\begin{itemize}
+			\item $q \Rightarrow q\xrightarrow{\mu}q^{'}$ e $<p,q>,<p^{'},q^{'}>\in S_{1}S_{2}$
+		\end{itemize}
+		Se $<p,q>\in S_{1}S_{2}$ allora esiste un $r$ tale che $<p,r>\in S_{1}$ e $<r,q>\in S_{2}$. Come sopra, da queste due ipotesi ricaviamo che:
+		\begin{itemize}
+			\item $r \Rightarrow r\xrightarrow{\mu}r^{'}$ e $<p,r>,<p^{'},r^{'}>\in S_{1}$
+			\item $q \Rightarrow q\xrightarrow{\mu}q^{'}$ e $<r,q>,<r^{'},q^{'}>\in S_{2}$
+		\end{itemize}
+		Se $<p,r>,<p^{'},r^{'}>\in S_{1}$ e $<r,q>,<r^{'},q^{'}>\in S_{2}$ allora $<p,q>,<p^{'},q^{'}>\in S_{1}S_{2}$ come richiesto.
+		
+		\vspace{5 mm}
+		Grazie a queste propriet\aacc possiamo dimostrare che $\approx_{b}$ \eacc un'equivalenza.
+		
+		Dal primo punto segue che $\forall p \in Q$ $p\approx_{b}p$ e quindi abbiamo la \emph{riflessivit\aacc}.
+		
+		Per la \emph{simmetria} facciamo vedere che se $p\approx_{b}q$ allora $<p,q>\in S$ per qualche bisimulazione di branching $S$. Allora $<q,p>\in S^{-1}$ e, per il secondo punto, $S^{-1}$ \eacc una bisimulazione di branching e quindi $q\approssima p$.
+		
+		Per la \emph{transitivit\aacc} facciamo vedere che se $p \approssima q$ e $q \approssima r$ allora $<p,q>\in S_{1}$ e $<q,r>\in S_{2}$ per qualche bisimulazione di branching $S_{1}$ ed $S_{2}$. Dunque $<p,r> \in S_{1}S_{2}$ e quindi $p\approssima r$ per il terzo punto.
 		
 		\newpage
 		
@@ -496,4 +614,14 @@
 		
 		\sectionline
 		
-		Svolgimento\ldots\ldots\ldots
+		La definizione $12.57$ ci dice che se $\mathcal{L}$ \eacc un insieme non vuoto di insiemi finiti di azioni visibili, cio\eacc $\mathcal{L}\subseteq\mathcal{P}(A_{CCS})$ e $Act(\mathcal{L}) = \{ \alpha|\alpha\in L, L\in \mathcal{L}\}$ \eacc l'insieme di tutte le azioni di $\mathcal{L}$ allora si dice che $\mathcal{L}$ \eacc \emph{saturato} se $\forall K \subseteq A_{CCS}$ $$L\in\mathcal{L}\land L\subseteq K \subseteq Act(\mathcal{L}) \text{ implica } K \in \mathcal{L}$$
+		
+		Da questa definizione ricaviamo che:
+		\begin{enumerate}
+			\item se $L_1,L_2 \in \mathcal{L}$ allora: 
+				\begin{itemize}
+					\item  $L_1 \subseteq L_1 \cup L_2 \subseteq Act(\mathcal{L}) \Rightarrow L_1 \cup L_2 \in \mathcal{L}$
+					\item $L_1 \subseteq K \subseteq L_2 \subseteq Act(\mathcal{L}) \Rightarrow L_1 \subseteq K \subseteq Act(\mathcal{L}) \Rightarrow K\in \mathcal{L}$
+				\end{itemize}
+			\item $L \subseteq Act(\mathcal{L}) \subseteq Act(\mathcal{L}) \Rightarrow Act(\mathcal{L}) \in \mathcal{L}$
+		\end{enumerate}
