@@ -199,15 +199,15 @@
 		\end{equation*}
 		Trovare la forma normale dei due termini:
 		\begin{equation*}
-			(\lambda y.yyy)(\kvar\ivar)(\ssvar))\text{ e }\sssssssvar
+			(\lambda y.yyy)(\kvar\ivar(\ssvar))\text{ e }\sssssssvar
 		\end{equation*}
 		
 		\sectionline
 		
 		\begin{align*}
 			(\lambda y.yyy)(\kvar\ivar(\ssvar)) & =
-			\kvar\ivar(\ssvar)(\kvar\ivar(\ssvar))(\kvar\ivar(\ssvar))\\
-			& = (\lambda y.\ivar)(\ssvar)((\lambda y.\ivar)(\ssvar))((\lambda
+			(\kvar\ivar(\ssvar))(\kvar\ivar(\ssvar))(\kvar\ivar(\ssvar))\\
+			& = ((\lambda y.\ivar)(\ssvar))((\lambda y.\ivar)(\ssvar))((\lambda
 			y.\ivar)(\ssvar))\\
 			& = \ivar\ivar\ivar\\
 			& = \ivar\ivar\\
@@ -238,42 +238,43 @@
 		Risolvere le equazioni fra linguaggi:
 		\begin{enumerate}
 		  \item $X = \{a\} \cdot X$
-		  \item $X = {a} \cup (\{b\} \cdot X)$
+		  \item $X = \{a\} \cup (\{b\} \cdot X)$
 		\end{enumerate}
 		dopo aver scelto gli opportuni domini e verificato che $\cdot$ e $\cup$ sono
 		operazioni continue.
 		\sectionline
-		\vspace{5 mm}
-		\begin{minipage}{25 mm}
-			\begin{flushleft}
-				$D:\{a,b\}$\\
-				$\mathbb{D} = up(D)$\\
-				$\mathbb{D}^*$\\
-			\end{flushleft}
-		\end{minipage}
-		\begin{minipage}{105 mm}
-			\begin{flushright}
-				l'insieme composto dai caratteri 'a' e 'b'\\
-				il dominio ottenuto tramite lifting da D\\
-				il dominio sequenza di $\mathbb{D}$\\
-			\end{flushright}
-		\end{minipage}
-		\vspace{5 mm}
+	
+		Sia $\Sigma:\{a,b\}$ e $L,M,N \subseteq \Sigma^{*}$. Definiamo la concatenazione $\cdot$ tra linguaggi $$L\cdot M = \{ss^{'}|s\in L \land s^{'}\in M\}$$
+		Questa operazione gode delle seguenti propriet\aacc:
+		\begin{itemize}
+			\item Possiede l'\emph{elemento neutro} $\{\epsilon\}$: $\epsilon \cdot L = L\cdot \epsilon = L$
+			\item Possiede l'\emph{elemento nullo} $\{\varnothing\}$: $\varnothing \cdot L = L\cdot \varnothing = \varnothing$
+			\item \emph{Associativit\aacc}: $(L\cdot M)\cdot N = L\cdot (M\cdot N)$
+			\item \emph{Monotonia}: $L\subseteq L^{'}$ e $M\subseteq M^{'} \Rightarrow L\cdot M \subseteq L^{'}\cdot M^{'}$ 
+		\end{itemize}
+		Prendendo come domini il dominio piatto $up(L)$ e $up(M)$ che contengono solamente catene finite, dal momento che $\Sigma^{*}$ contiene solo stringhe finite e che l'operazione $\cdot$ \eacc monotona, possiamo concludere che essa \eacc anche continua.
 		
-		Dato che il membro sinistro \`e sempre composto da un solo carattere,
-		possiamo definire la concatenazione $\cdot$ come il costruttore $\cdot ::
-		\cdot$ e quindi affermarne la continuit\`a grazie al lemma $6.39$. L'unione
-		$\cdot\cup\cdot$ pu\`{o} essere assimilata ad una somma disgiunta di domini
-		considerando la somma disgiunta dei linguaggi.
+		Definiamo adesso l'unione $\cup$ di linguaggi $$L\cup M = \{s|s\in L \lor s\in M\}$$
+		Anche questa operazione gode delle seguenti propriet\aacc:
+		\begin{itemize}
+			\item Possiede l'\emph{elemento neutro} $\{\varnothing \}$: $\varnothing \cup L = L\cup \varnothing = L$
+			\item \emph{Associativit\aacc}: $(L\cup M)\cup N = L\cup (M\cup N)$
+			\item \emph{Monotonia}: $L\subseteq L^{'}$ e $M\subseteq M^{'} \Rightarrow L\cup M \subseteq L^{'}\cup M^{'}$ 
+		\end{itemize}
+		Con lo stesso ragionamento possiamo quindi concludere che anche $\cup$ \eacc  continua.
 		
-		Le due equazioni generano i linguaggi $a^+$ e $b^*a$; sostituendo queste due
-		espressioni nelle relative equazioni otteniamo infatti un'equivalenza. Le
-		soluzioni delle equazioni sono dunque:
+		Per risolvere le due equazioni proviamo ad applicare il metodo delle approssimazioni successive. Iniziamo sostituendo nella prima equazione $\varnothing$ al posto della $X$ e otteniamo $$\varnothing = \{a\} \cdot \varnothing = \varnothing$$ 
+		In questo caso vediamo che con un solo passaggio abbiamo ottenuto una soluzione dell'equazione ed infatti $\varnothing$ \eacc il minimo punto fisso dell'equazione.
 		
-		\begin{enumerate}
-		  \item $X = a^+$
-		  \item $X = b^*a$
-		\end{enumerate}
+		Proviamo ad applicare lo stesso procedimento nella seconda equazione.
+		\begin{align*}
+			F^{0}\varnothing = & \{a\}\cup (\{b\}\cdot \varnothing) = \{a\}\cup \varnothing = \{a\}\\
+			F^{1}\{a\} = & \{a\} \cup (\{b\}\cdot \{a\}) = \{a\}\cup \{ba\} = \{a,ba\}\\
+			F^{2}\{a,ba\} = & \{a\} \cup (\{b\} \cdot \{a,ba\}) = \{a\}\cup \{ba,bba\} = \{a,ba,bba\}\\
+			\vdots\\
+		\end{align*}
+		
+		Non \eacc difficile convincersi che il linguaggio generato \eacc $b^* a$ che \eacc anche la soluzione dell'equazione, infatti $$b^* a = \{a\} \cup (\{b\} \cdot \ b^* a) = b^* a$$
 		
 		\newpage
 		
@@ -289,8 +290,12 @@
 		sicuramente bisogno di aggiungere i nuovi simboli $\{[,]\}$ e le nuove
 		funzioni di base \textbf{hd}$(l)$, \textbf{tl}$(l)$, \textbf{null}$(l)$ e
 		\textbf{remove}$(n,l)$ alla sintassi di SLF. Aggiungiamo ai valori di base il tipo di dato
-		\emph{lista di naturali} $l := \{[n,l]\text{ }|\text{ }n \in
-		\mathbb{NAT},l\text{ \`e una lista di naturali.}\}$
+		\emph{lista di naturali} definito come: 
+		\begin{enumerate}
+			\item $[\ ]\text{ \`e una lista di naturali.}$
+			\item $\{[n,l]\text{ }|\text{ }n \in
+			\mathbb{NAT},l\text{ \`e una lista di naturali}\}\text{ \`e una lista di naturali.}$
+		\end{enumerate}
 		
 		Definiamo le funzioni di base che in generale si trovano associate alle
 		liste:
@@ -313,6 +318,8 @@
 			B & ::= n \, | \, l\\
 			T & ::= x_i \, | \, B \, | \, \text{b}_j(T_1,\dots,T_m) \, | \, \text{f}_r(T_1,\dots,T_{\rho(r)}) \, | \, \textbf{if} \, T \, \textbf{then} \, T1 \, \textbf{else} \, T_2\\
 			D & ::= \text{f}_1(x_1,\dots,x_{\rho(1)})\Leftarrow T_1,\dots,\text{f}_n(x_1,\dots,x_{\rho(n)}) \Leftarrow T_n\\ 
+			& \qquad\qquad\qquad\qquad\qquad\qquad\qquad \rho(j) \text{ \`{e} l'ariet\`{a} di }f_j,1\leq j\leq n\\
+			l & ::= [\ ] | n::l\\
 		\end{align*}
 		\vspace{-16 mm}
 		\begin{flushright}
@@ -401,7 +408,7 @@
 					\text{in questo momento }\\
 					\text{non accetta una nuova}\\
 					\text{moneta finch\'e non}\\
-					\text{viene richiesta l'acqua}\\
+					\text{viene consegnata l'acqua}\\
 					\text{o il cioccolato}\\
 				\end{cases}$\\
 			\end{flushright}
@@ -483,9 +490,9 @@
 		& \Leftrightarrow \exists \ p^{'}: (p \xrightarrow{a} p^{'}) \land (q \ R \ p^{'})\\
 		\end{aligned}
 		\end{equation}
-		dalla caratterizzazione ricaviamo infine che $\eqref{eq:uno} \Rightarrow \eqref{eq:due}$
+		dalla caratterizzazione sappiamo che $\eqref{eq:uno} \Rightarrow \eqref{eq:due}$
 		
-		Dimostriamo adesso che questa implicazione vale per tutti e tre i nostri casi.
+		Dimostriamo adesso che questa implicazione vale per tutti e tre i nostri casi e quindi che sono simulazioni forti.
 		
 		\subsection{Caso Id}
 		

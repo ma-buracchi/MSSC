@@ -1,4 +1,4 @@
-\chapter{Svolgimento completo esercizio 5.4}
+\chapter{Svolgimento completo esercizio 5.7}
 
 	\begin{align*}
 		\sssssssvar & = (\lambda xyz.xz(yz))\ssssssvar\\
@@ -16,30 +16,29 @@
 		& = \ssvar(\sssssvar)\\
 		& = (\lambda yz.\svar z(yz))(\sssssvar)\\
 		& = \lambda z.\svar z(\sssssvar z)\\
-		& = \lambda z.(\lambda ya.a (y a))(\sssssvar z)\\
+		& = \lambda z.(\lambda ya.a a(y a))(\sssssvar z)\\
 		& = \lambda za.a a(\sssssvar a a)\\
-		& = \lambda za.a a((\lambda yb.\svar b (y b)) \sssvar z z)\\
-		& = \lambda za.a a((\lambda b.\svar b(\svar b))\svar \svar z z)\\
-		& = \lambda za.a a(\svar \svar(\svar \svar)\svar a a)\\
 		& = \lambda za.a a((\lambda yb.\svar b(y b))\sssvar z z)\\
-		& = \lambda za.a a((\lambda b.\svar b(\svar b))\ssvar z z)\\
-		& = \lambda za.a a(\svar \svar(\ssvar )\svar a a)\\
+		& = \lambda za.a a ((\lambda b.\svar b (\svar b)) \ssvar z z)\\
+		& = \lambda za.a a (\ssvar (\ssvar) \svar a a)\\
+		& = \lambda za.a a ((\lambda yb.\svar b (y b)) (\ssvar) \svar z z)\\
+		& = \lambda za.a a ((\lambda b.\svar b (\ssvar b)) \svar z z)\\
+		& = \lambda za.a a (\ssvar (\sssvar) a a)\\
+		& = \lambda za.a a ((\lambda yb.\svar b (y b)) (\sssvar) z z)\\
+		& = \lambda za.a a ((\lambda b.\svar b (\sssvar b)) z z)\\
+		& = \lambda za.a a (\svar a (\sssvar a) a)\\
+		& = \lambda za.a a ((\lambda yb.b b (y b)) (\sssvar z) z)\\
+		& = \lambda za.a a ((\lambda b.b b (\sssvar b b)) z)\\
 	\end{align*}
 	\begin{align*}
-		& = \lambda za.a a((\lambda yb.\svar b(y b))(\ssvar )\svar z z)\\
-		& = \lambda za.a a((\lambda b.\svar b(\ssvar b))\svar z z)\\
-		& = \lambda za.a a(\svar \svar(\sssvar)a a)\\
-		& = \lambda za.a a((\lambda yb.\svar b(y b))(\sssvar)z z)\\
-		& = \lambda za.a a((\lambda b.\svar b(\sssvar b))z z)\\
-		& = \lambda za.a a(\svar a(\sssvar a)a)\\
-		& = \lambda za.a a((\lambda yb.b b(y b))(\sssvar z)\\
-		& = \lambda za.a a((\lambda b.b b(\sssvar b b))z)\\
-		& = \lambda za.a a(a a(\sssvar a))\\
-		& = \lambda za.a a(a a((\lambda yb.\svar b(y b))\svar z z))\\
-		& = \lambda za.a a(a a (\svar a(\svar a)a))\\
-		& = \lambda za.a a(a((\lambda yb.b b(y b))(\svar z)z))\\
-		& = \lambda za.a a(a a((\lambda b.b b(\svar b b))z))\\
-		& = \lambda za.a a(a a(a a(\svar a a)))\\
-		& = \lambda za.a a(a a(a a((\lambda yb.b b(y b))z)))\\
-		& = \lambda za.a a(a a(a a(\lambda b.b b(b b))))\\
+		& = \lambda za.a a (a a (\sssvar a a))\\
+		& = \lambda za.a a (a a ((\lambda yb.\svar b (y b)) \svar z z))\\
+		& = \lambda za.a a (a a ((\lambda b.\svar b (\svar b)) z z))\\
+		& = \lambda za.a a (a a (\svar a [\svar a] a))\\
+		& = \lambda za.a a (a a ((\lambda yb.b b (y b)) (\svar z) z))\\
+		& = \lambda za.a a (a a ((\lambda b.b b (\svar b b)) z))\\
+		& = \lambda za.a a (a a (a a (\svar a a)))\\
+		& = \lambda za.a a (a a (a a ((\lambda yb.b b (y b)) z)))\\
+		& = \lambda za.a a (a a (a a (\lambda b.b b (b b))))\\
 	\end{align*}
+	
